@@ -1,6 +1,8 @@
 import MDXComponent from "@/components/MDXComponent";
 import { notionPostData } from "@/util/notion";
 
+export const runtime = "edge";
+
 export default async ({ params: { id } }: { params: { id: string } }) => {
   const parent = await notionPostData(id);
 
