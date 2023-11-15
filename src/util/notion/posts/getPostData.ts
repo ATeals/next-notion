@@ -1,6 +1,6 @@
 import { Client } from "@notionhq/client";
 
-import { RetrieveBlockChildren } from "../../api/notion";
+import { RetrieveBlockChildren } from "../../../api/notion";
 import { n2m } from "@/util/n2m";
 
 const getPostData = async (notion: Client, id: string): Promise<string> => {

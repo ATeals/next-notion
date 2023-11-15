@@ -1,21 +1,28 @@
-import MDXComponent from "@/components/MDXComponent";
-import { notionPostData } from "@/util/notion";
-import getPostData from "@/util/notion/posts/getPostData";
-import { Client } from "@notionhq/client";
+import { LoopMDX } from "@/components/LoopMDX";
+import { generateClassName } from "@/util/generateClassName";
+import { notionPostInfo } from "@/util/notion";
+import { GeistSans } from "geist/font/sans";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
-  // const parent = await notionPostData(id);
-
-  const start = performance.now();
-  const notion = new Client({ auth: process.env.NOTION_KEY });
-  const res = await getPostData(notion, id);
-
-  console.log(performance.now() - start);
-
+  await notionPostInfo(id);
   return (
     <main className="p-4">
-      <MDXComponent source={res} />
-      Post
+      <div
+        className={generateClassName(
+          "prose prose-stone lg:prose-l w-full",
+          "prose-quoteless",
+          "prose-p:break-words",
+          "prose-headings:my-10",
+          "prose-p:my-5",
+          "prose-hr:m-2",
+          "prose-pre:bg-inherit",
+          "m-auto",
+          "max-w-[680px]"
+        )}
+        style={GeistSans.style}
+      >
+        <LoopMDX postId={id} />
+      </div>
     </main>
   );
 };
