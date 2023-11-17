@@ -8,7 +8,7 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
     <section>
       <div className="relative h-screen w-screen">
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-fixed bg-center md:bg-left"
+          className="absolute inset-0 bg-cover bg-no-repeat bg-fixed bg-center-safari bg-center md:bg-left"
           style={{
             backgroundImage: `url(${postInfo.coverImg})`,
           }}
