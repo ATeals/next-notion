@@ -2,10 +2,13 @@ import {
   GetDatabaseResponse,
   QueryDatabaseResponse,
 } from "@notionhq/client/build/src/api-endpoints";
-import { NotionFetcher } from ".";
+import { notionFetcher } from "./notionFetcer";
 
-export const QueryDatabase = async (dbId: string, tags: string[], filter?: any): Promise<any> => {
-  const res = await NotionFetcher(`databases/${dbId}/query`, {
+export const QueryDatabase = async (
+  dbId: string,
+  { next, filter }: { next?: NextFetchRequestConfig; filter?: any } = {}
+): Promise<QueryDatabaseResponse> => {
+  const res = await notionFetcher(`databases/${dbId}/query`, {
     method: "POST",
     body: {
       page_size: 100,
@@ -17,7 +20,7 @@ export const QueryDatabase = async (dbId: string, tags: string[], filter?: any):
       ],
       filter,
     },
-    next: { tags },
+    next,
   });
 
   return res;
@@ -26,4 +29,4 @@ export const QueryDatabase = async (dbId: string, tags: string[], filter?: any):
 export const RetrieveDatabase = async (
   dbId: string,
   tags: string[]
-): Promise<GetDatabaseResponse> => NotionFetcher(`databases/${dbId}`, { next: { tags } });
+): Promise<GetDatabaseResponse> => notionFetcher(`databases/${dbId}`, { next: { tags } });

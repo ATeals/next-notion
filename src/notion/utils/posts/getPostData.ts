@@ -1,11 +1,7 @@
-import { Client } from "@notionhq/client";
-
-import { RetrieveBlockChildren } from "../../../api/notion";
 import { n2m } from "@/util/n2m";
+import { RetrieveBlockChildren } from "@/notion/api";
 
-const getPostData = async (notion: Client, id: string): Promise<string> => {
-  // const mdblocks = await n2m.pageToMarkdown(id);
-
+export const getPostData = async (id: string): Promise<string> => {
   const arr = [];
   const res = await RetrieveBlockChildren(id);
 
@@ -25,5 +21,3 @@ const getPostData = async (notion: Client, id: string): Promise<string> => {
 
   return parent;
 };
-
-export default getPostData;

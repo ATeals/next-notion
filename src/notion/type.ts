@@ -1,9 +1,7 @@
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-
 export interface PostInfo {
   title: string;
   coverImg?: string;
-  tags: string[];
+  tags: tag[];
   created_at: string;
   description: string;
   id: string;

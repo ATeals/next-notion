@@ -1,8 +1,4 @@
-export { RetrieveBlockChildren } from "./block";
-export { QueryDatabase, RetrieveDatabase } from "./database";
-export { RetrievePage } from "./page";
-
-export const NotionFetcher = async (
+export const notionFetcher = async (
   url: string,
   {
     method = "GET",

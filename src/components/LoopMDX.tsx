@@ -1,6 +1,6 @@
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import MDXComponent from "@/components/MDXComponent";
-import { RetrieveBlockChildren } from "@/api/notion";
+import { RetrieveBlockChildren } from "@/notion/api";
 import { n2m } from "@/util/n2m";
 import { Suspense } from "react";
 
