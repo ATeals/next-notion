@@ -39,6 +39,7 @@ export const Header = () => {
         backdropFilter: isScrolled ? "blur(10px)" : "none",
         color: isScrolled ? "black" : "white",
         transition: "background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out",
+        WebkitBackdropFilter: isScrolled ? "blur(10px)" : "none",
       }}
     >
       <nav className="[&>*]:mx-1 [&>*]:text-md md:[&>*]:mx-3 flex items-center">
