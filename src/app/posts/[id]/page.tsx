@@ -13,7 +13,7 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
     <section>
       <Suspense
         fallback={
-          <div className="w-screen h-screen">
+          <div className="w-screen h-screen flex justify-center items-center">
             <LoadingIndicator />
           </div>
         }
