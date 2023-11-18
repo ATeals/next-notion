@@ -2,6 +2,8 @@ import { generateClassName } from "@/util/generateClassName";
 import { notionTags } from "@/notion";
 import Link from "next/link";
 
+export const revalidate = 0;
+
 export default async () => {
   const tags = await notionTags();
   return (
