@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
 
+export const revalidate = 0;
+
 export async function POST(request: NextRequest) {
   const tag = request.nextUrl.searchParams.get("tag");
   const { secret } = await request.json();
