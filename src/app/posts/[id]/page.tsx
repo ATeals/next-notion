@@ -4,43 +4,17 @@ import { PostBody } from "@/components/Post/PostBody";
 import RevalidatePost from "@/components/RevalidatePost";
 import { LOGO_IMAGE, REVALIDATE_TAGNAME } from "@/constants";
 import { notionPostInfo } from "@/notion";
+import { Suspense } from "react";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { PostHeader } from "@/components/Post/PostHeader";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
-  const postInfo = await notionPostInfo(id);
-
   return (
     <section>
-      <div className="relative h-screen w-screen">
-        <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-fixed bg-center-safari bg-center md:bg-left"
-          style={{
-            backgroundImage: `url(${postInfo.coverImg})`,
-          }}
-        ></div>
-        <div className="absolute inset-0 bg-black opacity-30"></div>
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center m-10">
-          <div>
-            <h1 className="text-gray-400 text-md md:text-center">{postInfo.created_at}</h1>
-            <h1 className="text-gray-50 text-3xl italic">{postInfo.title}</h1>
-          </div>
-
-          <h1 className="text-gray-300 text-lg my-4">{postInfo.description}</h1>
-
-          <div className="mt-10">
-            {postInfo.tags.map((tag) => (
-              <span className="text-lg text-gray-300 mx-2" key={tag.id}>
-                #{tag.name}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-white to-transparent"></div>
-      </div>
+      <Suspense fallback={<LoadingIndicator />} children={<PostHeader id={id} />} />
 
       <div className="p-4">
-        <PostBody id={id} />
+        <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
       </div>
 
       <Giscus />
