@@ -11,7 +11,14 @@ import { PostHeader } from "@/components/Post/PostHeader";
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <section>
-      <Suspense fallback={<LoadingIndicator />} children={<PostHeader id={id} />} />
+      <Suspense
+        fallback={
+          <div className="w-screen h-screen">
+            <LoadingIndicator />
+          </div>
+        }
+        children={<PostHeader id={id} />}
+      />
 
       <div className="p-4">
         <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
