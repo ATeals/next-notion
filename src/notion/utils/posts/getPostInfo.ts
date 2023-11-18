@@ -9,13 +9,13 @@ export const getPostInfo = async (id: string): Promise<PostInfo> => {
       ? response.properties?.title.title[0].plain_text
       : "";
 
-  const created_at = response.created_time.slice(0, 10);
+  const created_at = response.created_time?.slice(0, 10);
 
   const tags =
-    response.properties.tags.type === "multi_select" ? response.properties.tags.multi_select : [];
+    response.properties?.tags.type === "multi_select" ? response.properties.tags.multi_select : [];
 
   const description =
-    response.properties.description.type === "rich_text"
+    response.properties?.description.type === "rich_text"
       ? response.properties.description.rich_text[0]?.plain_text
       : "";
 

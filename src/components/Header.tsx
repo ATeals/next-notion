@@ -1,6 +1,8 @@
 "use client";
 
+import { LOGO_IMAGE } from "@/constants";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const SocialItem = [
@@ -13,8 +15,11 @@ const SocialItem = [
   },
 ];
 
+const BLUR_URLS = ["", "posts"];
+
 export const Header = () => {
   const [scrollHeight, setScrollHeight] = useState(0);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +28,14 @@ export const Header = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    console.log(scrollHeight);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const isScrolled = scrollHeight > 0;
+  const isBlur = BLUR_URLS.includes(pathname.split("/")[1]);
+
+  const isScrolled = scrollHeight > 0 || !isBlur;
 
   return (
     <header
@@ -44,7 +50,7 @@ export const Header = () => {
     >
       <nav className="[&>*]:mx-1 [&>*]:text-md md:[&>*]:mx-3 flex items-center">
         <Link href={"/"}>
-          <img src={"/images/logo.webp"} alt="logo" width={40} height={40} />
+          <img src={LOGO_IMAGE} alt="logo" width={40} height={40} />
         </Link>
 
         <Link href={"/"}>Home</Link>

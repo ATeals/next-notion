@@ -4,18 +4,19 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 export const getPostsFromTag = async (tag: string) => {
   const { results } = await QueryDatabase(process.env.POST_DB_ID as string, {
-    next: { tags: ["series"] },
-    filter: {
-      property: "tags",
-      multi_select: {
-        contains: tag,
+    filter: [
+      {
+        property: "tags",
+        multi_select: {
+          contains: tag,
+        },
       },
-    },
+    ],
   });
 
   const posts = results as PageObjectResponse[];
 
-  const PostList = posts.reduce((a: PostInfo[], c: PageObjectResponse) => {
+  const PostList = posts?.reduce((a: PostInfo[], c: PageObjectResponse) => {
     const coverImg =
       c.cover?.type === "external" ? c?.cover?.external.url : c?.cover?.file.url || "";
     const created_at = c.created_time.slice(0, 10);

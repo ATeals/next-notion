@@ -4,7 +4,7 @@ interface LoadingProps extends React.HTMLProps<SVGSVGElement> {
 
 export const LoadingIndicator = ({ fill, ...props }: LoadingProps) => {
   return (
-    <div>
+    <div className="flex justify-center">
       <svg
         version="1.1"
         id="loader-1"

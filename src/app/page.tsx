@@ -1,5 +1,6 @@
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { PostGrid } from "@/components/Post/PostGrid";
+import { DOMAIN_URL, LOGO_IMAGE, MAIN_BACKGROUND } from "@/constants";
 import { notionPosts } from "@/notion";
 import { Suspense } from "react";
 
@@ -10,7 +11,7 @@ export default async () => {
         <div
           className="absolute inset-0 bg-cover bg-no-repeat bg-fixed"
           style={{
-            backgroundImage: `url(${"/images/main.webp"})`,
+            backgroundImage: `url(${MAIN_BACKGROUND})`,
           }}
         ></div>
 
@@ -24,4 +25,30 @@ export default async () => {
       <Suspense fallback={<LoadingIndicator />} children={<PostGrid fetcher={notionPosts} />} />
     </section>
   );
+};
+
+export const metadata = {
+  title: "Teals",
+  description: "Teal의 개발 블로그",
+  canonical: "https://www.carrotins.com",
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: DOMAIN_URL,
+    title: "Teal's Log",
+    site_name: "Teal's Log",
+    images: [
+      {
+        url: LOGO_IMAGE,
+        width: 1900,
+        height: 630,
+        alt: "og: 이미지",
+      },
+    ],
+  },
+  twitter: {
+    handle: "@handle",
+    site: "@site",
+    cardType: "summary_large_image",
+  },
 };

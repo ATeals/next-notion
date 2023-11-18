@@ -6,7 +6,7 @@ import { notionFetcher } from "./notionFetcer";
 
 export const QueryDatabase = async (
   dbId: string,
-  { next, filter }: { next?: NextFetchRequestConfig; filter?: any } = {}
+  { next, filter = [] }: { next?: NextFetchRequestConfig; filter?: any[] } = {}
 ): Promise<QueryDatabaseResponse> => {
   const res = await notionFetcher(`databases/${dbId}/query`, {
     method: "POST",
@@ -18,9 +18,19 @@ export const QueryDatabase = async (
           direction: "descending",
         },
       ],
-      filter,
+      filter: {
+        and: [
+          {
+            property: "hidden",
+            checkbox: {
+              equals: false,
+            },
+          },
+          ...filter,
+        ],
+      },
     },
-    next,
+    next: { revalidate: 0, ...next },
   });
 
   return res;
