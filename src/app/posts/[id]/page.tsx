@@ -34,8 +34,8 @@ export const generateMetadata = async ({ params: { id } }: { params: { id: strin
   const post = await notionPostInfo(id);
   return (
     post && {
-      title: ` ${post.title} | Teals`,
-      description: post.description || "Teals의 개발 블로그",
+      title: ` ${post.title} | ATeals`,
+      description: post.description || "ATeals의 개발 블로그",
       canonical: `posts/${post.id}`,
       openGraph: {
         type: "website",
