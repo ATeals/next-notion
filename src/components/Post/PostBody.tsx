@@ -8,10 +8,13 @@ export const PostBody = ({ id }: { id: string }) => {
         "prose prose-stone lg:prose-l w-full",
         "prose-quoteless",
         "prose-p:break-words",
-        "prose-headings:my-10",
+        "prose-headings:mt-20 prose-headings:mb-2",
+        "prose-headings:text-2xl",
+        "prose-h3:text-lg",
         "prose-p:my-5",
-        "prose-hr:m-2",
+        "prose-hr:my-2",
         "prose-pre:bg-inherit",
+        "prose-pre:px-0",
         "m-auto",
         "max-w-[680px]"
       )}

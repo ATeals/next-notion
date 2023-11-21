@@ -9,7 +9,7 @@ export default async () => {
     <section>
       <div className="relative h-[450px] w-screen">
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-fixed"
+          className="absolute inset-0 bg-cover bg-no-repeat bg-fixed bg-center-safari bg-center md:bg-left"
           style={{
             backgroundImage: `url(${MAIN_BACKGROUND})`,
           }}
