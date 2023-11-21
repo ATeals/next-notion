@@ -47,7 +47,7 @@ export const generateMetadata = async ({ params: { id } }: { params: { id: strin
         images: [
           {
             url: post.coverImg ? post.coverImg : LOGO_IMAGE,
-            width: 1900,
+            width: 1200,
             height: 630,
             alt: "ogImage",
           },
