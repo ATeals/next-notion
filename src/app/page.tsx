@@ -40,7 +40,7 @@ export const metadata = {
     site_name: "Teal's Log",
     images: [
       {
-        url: MAIN_JPG,
+        url: DOMAIN_URL + MAIN_JPG,
         width: 1200,
         height: 630,
         alt: "og: 이미지",
