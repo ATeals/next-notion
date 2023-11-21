@@ -1,4 +1,5 @@
 import { notionPostInfo } from "@/notion";
+import { Tag } from "../Tag";
 
 export const PostHeader = async ({ id }: { id: string }) => {
   const postInfo = await notionPostInfo(id);
@@ -23,9 +24,7 @@ export const PostHeader = async ({ id }: { id: string }) => {
 
         <div className="mt-10">
           {postInfo.tags.map((tag) => (
-            <span className="text-lg text-gray-300 mx-2" key={tag.id}>
-              #{tag.name}
-            </span>
+            <Tag key={tag.id} tag={tag} className="text-gray-300" />
           ))}
         </div>
       </div>

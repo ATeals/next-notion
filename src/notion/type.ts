@@ -1,13 +1,13 @@
 export interface PostInfo {
   title: string;
   coverImg?: string;
-  tags: tag[];
+  tags: Tag[];
   created_at: string;
   description: string;
   id: string;
 }
 
-export interface tag {
+export interface Tag {
   id: string;
   name: string;
   color: string;
