@@ -7,10 +7,13 @@ import { notionPostInfo } from "@/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { PostHeader } from "@/components/Post/PostHeader";
+import { PageProgressBar } from "@/components/Tag/PageProgressBar";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <section>
+      <PageProgressBar />
+
       <Suspense
         fallback={
           <div className="w-screen h-screen flex justify-center items-center">
