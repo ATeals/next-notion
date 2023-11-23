@@ -21,6 +21,7 @@ module.exports = {
       },
       animation: {
         turn: "turn 0.7s ease-out",
+        fadeIn: "fadeIn 0.7s ease-in-out",
       },
       keyframes: {
         turn: {
@@ -29,6 +30,14 @@ module.exports = {
           },
           "100%": {
             transform: "rotate(360deg)",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 1,
           },
         },
       },

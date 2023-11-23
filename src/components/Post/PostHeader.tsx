@@ -5,9 +5,9 @@ export const PostHeader = async ({ id }: { id: string }) => {
   const postInfo = await notionPostInfo(id);
 
   return (
-    <div className="relative h-screen w-screen">
+    <div className="relative h-screen w-screen animate-fadeIn z-[-1]">
       <div
-        className="absolute z-[-1] bg-no-repeat"
+        className="absolute bg-no-repeat"
         style={{
           backgroundImage: `url(${postInfo.coverImg})`,
           backgroundPosition: "center top",
