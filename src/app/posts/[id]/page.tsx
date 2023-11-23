@@ -20,12 +20,11 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
         children={<PostHeader id={id} />}
       />
 
-      <div className="p-4">
+      <div className="p-4 background">
         <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
-      </div>
-
-      <div className="lg:max-w-[70%] m-auto">
-        <Giscus />
+        <div className="">
+          <Giscus />
+        </div>
       </div>
 
       <Portal component={<RevalidatePost id={id} />} elementId={REVALIDATE_TAGNAME} />

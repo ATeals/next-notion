@@ -7,14 +7,16 @@ export const PostHeader = async ({ id }: { id: string }) => {
   return (
     <div className="relative h-screen w-screen">
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat bg-fixed md:bg-left"
+        className="absolute z-[-1] bg-no-repeat"
         style={{
           backgroundImage: `url(${postInfo.coverImg})`,
-          backgroundAttachment: "scroll",
           backgroundPosition: "center top",
+          backgroundSize: "cover",
+          position: "fixed",
+          width: "100%",
+          height: "100%",
         }}
       ></div>
-      <div className="absolute inset-0 bg-black opacity-30"></div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center m-10">
         <div>

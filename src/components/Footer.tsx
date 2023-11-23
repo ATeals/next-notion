@@ -2,7 +2,7 @@ import { REVALIDATE_TAGNAME } from "@/constants";
 
 export default () => {
   return (
-    <footer className="p-10 min-h-[200px] flex flex-col justify-center items-center [&>*]:m-2">
+    <footer className="p-10 min-h-[400px] flex flex-col justify-center items-center [&>*]:m-2 background">
       <div className="dark:text-white">&copy; Ateals</div>
 
       <div id={REVALIDATE_TAGNAME} className="flex [&>*]:mx-2"></div>

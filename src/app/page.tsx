@@ -9,11 +9,14 @@ export default async () => {
     <section>
       <div className="relative h-[500px] md:h-[500px] w-screen">
         <div
-          className="absolute inset-0 bg-cover bg-no-repeat bg-fixed"
+          className="absolute top-0 left-0 w-full h-full z-[-1] bg-no-repeat"
           style={{
             backgroundImage: `url(${MAIN_WEBP})`,
-            backgroundPosition: "top -250px",
-            backgroundAttachment: "scroll",
+            backgroundPosition: "center top -240px",
+            backgroundSize: "cover",
+            position: "fixed",
+            width: "100%",
+            height: "100%",
           }}
         ></div>
 
@@ -22,9 +25,11 @@ export default async () => {
           <h1 className="text-gray-200 text-xl"></h1>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
       </div>
-      <Suspense fallback={<LoadingIndicator />} children={<PostGrid fetcher={notionPosts} />} />
+      <div className="background">
+        <Suspense fallback={<LoadingIndicator />} children={<PostGrid fetcher={notionPosts} />} />
+      </div>
     </section>
   );
 };
