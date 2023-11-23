@@ -9,8 +9,6 @@ export const getPosts = async () => {
 
   const posts = results as PageObjectResponse[];
 
-  console.log(posts);
-
   const PostList = posts.reduce((a: PostInfo[], c: PageObjectResponse) => {
     const coverImg =
       c.cover?.type === "external" ? c?.cover?.external.url : c?.cover?.file.url || "";

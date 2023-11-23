@@ -9,7 +9,7 @@ export default async () => {
     <section>
       <div className="relative h-[300px] md:h-[500px] w-screen">
         <div
-          className="absolute top-0 left-0 w-full h-full z-[-1] bg-no-repeat"
+          className="absolute top-0 left-0 z-[-1] bg-no-repeat animate-fadeIn"
           style={{
             backgroundImage: `url(${MAIN_WEBP})`,
             backgroundPosition: "center top -240px",
@@ -20,14 +20,14 @@ export default async () => {
           }}
         ></div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center animate-fadeIn">
           <h1 className="text-gray-200 text-4xl italic">Teals Blog</h1>
           <h1 className="text-gray-200 text-xl"></h1>
         </div>
 
         <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
       </div>
-      <div className="background">
+      <div className="background min-h-[680px] z-10">
         <Suspense fallback={<LoadingIndicator />} children={<PostGrid fetcher={notionPosts} />} />
       </div>
     </section>
