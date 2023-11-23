@@ -7,12 +7,13 @@ import { Suspense } from "react";
 export default async () => {
   return (
     <section>
-      <div className="relative h-[500px] w-screen">
+      <div className="relative h-[500px] md:h-[500px] w-screen">
         <div
           className="absolute inset-0 bg-cover bg-no-repeat bg-fixed"
           style={{
             backgroundImage: `url(${MAIN_WEBP})`,
-            backgroundPosition: "center top -250px",
+            backgroundPosition: "top -250px",
+            backgroundAttachment: "scroll",
           }}
         ></div>
 
