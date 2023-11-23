@@ -10,6 +10,7 @@ export const getPostInfo = async (id: string): Promise<PostInfo> => {
       : "";
 
   const created_at = response.created_time?.slice(0, 10);
+  const update_at = response.last_edited_time?.slice(0, 10);
 
   const tags =
     response.properties?.tags.type === "multi_select" ? response.properties.tags.multi_select : [];
@@ -22,5 +23,5 @@ export const getPostInfo = async (id: string): Promise<PostInfo> => {
   const coverImg =
     response.cover?.type === "external" ? response?.cover?.external.url : response?.cover?.file.url;
 
-  return { title, created_at, tags, description, coverImg, id: response.id };
+  return { title, created_at, update_at, tags, description, coverImg, id: response.id };
 };
