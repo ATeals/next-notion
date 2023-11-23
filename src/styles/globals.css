@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.background {
+  @apply bg-white dark:bg-[#191B1F];
+}

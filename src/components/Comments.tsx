@@ -1,9 +1,11 @@
 "use client";
 
+import { useDarkMode } from "@/hooks/useDarkMode";
 import { useContext, useEffect, useRef } from "react";
 
 export default function Giscus() {
   const ref = useRef<HTMLDivElement>(null);
+  const { isDarkMode } = useDarkMode();
 
   useEffect(() => {
     if (!ref.current || ref.current.hasChildNodes()) return;
@@ -22,10 +24,7 @@ export default function Giscus() {
     scriptElem.setAttribute("data-reactions-enabled", "1");
     scriptElem.setAttribute("data-emit-metadata", "0");
     scriptElem.setAttribute("data-input-position", "top");
-    scriptElem.setAttribute(
-      "data-theme",
-      window.localStorage.getItem("isDark") === "true" ? "dark" : "light"
-    );
+    scriptElem.setAttribute("data-theme", isDarkMode ? "dark" : "light");
     scriptElem.setAttribute("data-lang", "ko");
     // scriptElem.setAttribute("data-loading", "lazy");
     scriptElem.setAttribute("async", "");
@@ -33,11 +32,11 @@ export default function Giscus() {
     ref.current.appendChild(scriptElem);
   }, []);
 
-  // useEffect(() => {
-  //     const theme = isDark ? "dark" : "light";
-  //     const iframe = document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
-  //     iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
-  // }, [isDark]);
+  useEffect(() => {
+    const theme = isDarkMode ? "dark" : "light";
+    const iframe = document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
+    iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
+  }, [isDarkMode]);
 
   return <section className="m-5 shadow-inner  p-5 rounded-xl" ref={ref} />;
 }

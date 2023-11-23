@@ -21,7 +21,7 @@ export default async () => {
           <h1 className="text-gray-200 text-xl"></h1>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-white to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
       </div>
       <Suspense fallback={<LoadingIndicator />} children={<PostGrid fetcher={notionPosts} />} />
     </section>

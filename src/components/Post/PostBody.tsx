@@ -5,6 +5,7 @@ export const PostBody = ({ id }: { id: string }) => {
   return (
     <div
       className={generateClassName(
+        "dark:prose-invert",
         "prose prose-stone lg:prose-l w-full",
         "prose-quoteless",
         "prose-p:break-words",
