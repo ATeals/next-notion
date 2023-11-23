@@ -24,7 +24,10 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
         <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
       </div>
 
-      <Giscus />
+      <div className="lg:max-w-[70%] m-auto">
+        <Giscus />
+      </div>
+
       <Portal component={<RevalidatePost id={id} />} elementId={REVALIDATE_TAGNAME} />
     </section>
   );
