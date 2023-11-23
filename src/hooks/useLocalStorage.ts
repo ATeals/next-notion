@@ -9,13 +9,16 @@ function useLocalStorage<T>(
   key: string,
   initialValue?: T
 ): [T, (dispatch: (value: T) => T | T) => void] {
-  const getSnapShot = (): T => {
-    const value = window.localStorage.getItem(key);
-
+  const getSnapShot = () => {
+    const value = window?.localStorage.getItem(key);
     return value !== null ? JSON.parse(value) : initialValue;
   };
 
-  const localStorageValue = useSyncExternalStore(subscribe, getSnapShot);
+  const getServerSnapShot = () => {
+    return initialValue;
+  };
+
+  const localStorageValue = useSyncExternalStore(subscribe, getSnapShot, getServerSnapShot);
 
   const setLocalStorage = (dispatch: (value: T) => T | T): void => {
     const state = typeof dispatch === "function" ? dispatch(localStorageValue) : dispatch;

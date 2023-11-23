@@ -1,6 +1,5 @@
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useScroll } from "@/hooks/useScroll";
-import { useEffect } from "react";
 
 export const DarkModeBtn = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
