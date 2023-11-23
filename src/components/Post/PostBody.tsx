@@ -15,6 +15,7 @@ export const PostBody = ({ id }: { id: string }) => {
         "prose-p:my-5",
         "prose-hr:my-2",
         "prose-pre:bg-inherit",
+        "prose-a:dark:text-teal-400 prose-a:text-teal-700",
         "prose-pre:px-0",
         "m-auto",
         "max-w-[680px]"
