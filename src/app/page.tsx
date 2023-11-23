@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export default async () => {
   return (
     <section>
-      <div className="relative h-[500px] md:h-[500px] w-screen">
+      <div className="relative h-[300px] md:h-[500px] w-screen">
         <div
           className="absolute top-0 left-0 w-full h-full z-[-1] bg-no-repeat"
           style={{
