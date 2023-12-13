@@ -1,8 +1,6 @@
 import { notionTags } from "@/notion";
 import { Tag } from "@/components/Tag";
 
-export const revalidate = 0;
-
 export default async () => {
   const tags = await notionTags();
   return (

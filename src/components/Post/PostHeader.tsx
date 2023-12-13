@@ -1,5 +1,6 @@
 import { notionPostInfo } from "@/notion";
 import { Tag } from "../Tag";
+import { MAIN_WEBP } from "@/constants";
 
 export const PostHeader = async ({ id }: { id: string }) => {
   const postInfo = await notionPostInfo(id);
@@ -9,7 +10,7 @@ export const PostHeader = async ({ id }: { id: string }) => {
       <div
         className="absolute bg-no-repeat"
         style={{
-          backgroundImage: `url(${postInfo.coverImg})`,
+          backgroundImage: `url(${postInfo.coverImg || MAIN_WEBP})`,
           backgroundPosition: "center top",
           backgroundSize: "cover",
           position: "fixed",

@@ -1,11 +1,17 @@
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useScroll } from "@/hooks/useScroll";
+import { usePathname } from "next/navigation";
+
+const BLUR_URLS = ["", "posts"];
 
 export const DarkModeBtn = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const scrollHeight = useScroll();
+  const pathname = usePathname();
 
-  const isScroll = scrollHeight > 0;
+  const isBlur = BLUR_URLS.includes(pathname.split("/")[1]);
+
+  const isScrolled = scrollHeight > 0 || !isBlur;
 
   return (
     <button
@@ -15,7 +21,7 @@ export const DarkModeBtn = () => {
       {isDarkMode ? (
         <SVG.light fill={"white"} />
       ) : (
-        <SVG.dark fill={isScroll ? "#191B1F" : "white"} />
+        <SVG.dark fill={isScrolled && !isDarkMode ? "#191B1F" : "white"} />
       )}
     </button>
   );

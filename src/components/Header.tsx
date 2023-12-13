@@ -3,7 +3,6 @@
 import { LOGO_IMAGE } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { DarkModeBtn } from "./DarkModeBtn";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useScroll } from "@/hooks/useScroll";
@@ -46,7 +45,7 @@ export const Header = () => {
     >
       <nav className="[&>*]:mx-1 [&>*]:text-md md:[&>*]:mx-3 flex items-center">
         <Link href={"/"}>
-          <img src={LOGO_IMAGE} alt="logo" width={40} height={40} />
+          <img src={LOGO_IMAGE} alt="logo" width={30} height={30} />
         </Link>
 
         <Link href={"/"}>Home</Link>
