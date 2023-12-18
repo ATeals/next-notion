@@ -10,7 +10,7 @@ export const PostHeader = async ({ id }: { id: string }) => {
       <div
         className="absolute bg-no-repeat"
         style={{
-          backgroundImage: `url(${postInfo.coverImg || MAIN_WEBP})`,
+          backgroundImage: `url(${postInfo?.coverImg || MAIN_WEBP})`,
           backgroundPosition: "center top",
           backgroundSize: "cover",
           position: "fixed",
@@ -21,14 +21,14 @@ export const PostHeader = async ({ id }: { id: string }) => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center m-10 z-10">
         <div>
-          <h1 className="text-gray-400 text-md md:text-center">{postInfo.created_at}</h1>
-          <h1 className="text-gray-50 text-3xl italic">{postInfo.title}</h1>
+          <h1 className="text-gray-400 text-md md:text-center">{postInfo?.createdAt}</h1>
+          <h1 className="text-gray-50 text-3xl italic">{postInfo?.title}</h1>
         </div>
 
-        <h1 className="text-gray-300 text-lg my-4">{postInfo.description}</h1>
+        <h1 className="text-gray-300 text-lg my-4">{postInfo?.description}</h1>
 
         <div className="mt-10">
-          {postInfo.tags.map((tag) => (
+          {postInfo?.tags?.map((tag) => (
             <Tag key={tag.id} tag={tag} className="text-gray-300" />
           ))}
         </div>
