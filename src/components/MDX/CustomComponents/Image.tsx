@@ -8,9 +8,13 @@ export const Image = ({
   ...props
 }: React.ImgHTMLAttributes<HTMLImageElement>) => {
   return (
-    <div className="my-10 w-full">
-      <img src={src} alt={alt} {...props} className="m-0 w-full" />
-      {alt && <span className="text-gray text-sm italic">{alt}</span>}
-    </div>
+    <>
+      <img src={src} alt={alt} {...props} className="m-0 mx-auto w-[80%] my-10" />
+      {alt && alt !== "" && (
+        <span className="text-gray-400 text-sm italic w-[80%] mx-auto block mt-[-40px] mb-10">
+          {alt}
+        </span>
+      )}
+    </>
   );
 };

@@ -31,7 +31,7 @@ n2m.setCustomTransformer("image", async (block) => {
     image = res.image;
   }
 
-  return `![${image?.caption[0]?.plain_text || "image"}](${
+  return `![${image?.caption[0]?.plain_text || ""}](${
     image?.file?.url || image?.external?.url || ""
   })`;
 });
