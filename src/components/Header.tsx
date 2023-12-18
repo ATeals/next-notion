@@ -48,7 +48,9 @@ export const Header = () => {
 
         <Link href={"/"}>Home</Link>
         <Link href={"/tags"}>Tags</Link>
-        <Link href={"/tags/Collection"}>Collection</Link>
+        <div className="md:[&>*]:mr-6 hidden md:flex">
+          <Link href={"/tags/Collection"}>Collection</Link>
+        </div>
       </nav>
 
       <ul className="[&>*]:mx-3 [&>*]:text-md md:[&>*]:mx-3 flex items-center">

@@ -10,7 +10,7 @@ export const PostGrid = async ({
   const posts = await fetcher();
 
   return (
-    <section className="px-20 m-auto max-w-[1200px]">
+    <section className="px-5 md:px-20 m-auto max-w-[1200px]">
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-[1rem] flex-col">
         {posts?.map((post) => post && isFullPost(post) && <Post key={post.id} post={post} />)}
       </section>
