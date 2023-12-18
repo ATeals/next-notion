@@ -7,5 +7,5 @@ export const RetrieveBlockChildren = async (
 ): Promise<ListBlockChildrenResponse> =>
   notionFetcher(`blocks/${id}/children`, {
     searchParams: ["page_size=25", start_cursor && `&start_cursor=${start_cursor}`],
-    next: { tags: [id] },
+    next: { tags: [id], revalidate: false },
   });

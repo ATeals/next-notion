@@ -7,6 +7,7 @@ export const n2m = new NotionToMarkdown({
   notionClient: notion,
   config: {
     separateChildPage: true,
+    parseChildPages: true,
   },
 });
 
@@ -34,4 +35,10 @@ n2m.setCustomTransformer("image", async (block) => {
   return `![${image?.caption[0]?.plain_text || ""}](${
     image?.file?.url || image?.external?.url || ""
   })`;
+});
+
+n2m.setCustomTransformer("bookmark", async (block) => {
+  let { bookmark } = block as any;
+
+  return `[${bookmark?.caption[0]?.plain_text || bookmark?.url || ""}](${bookmark?.url || ""})`;
 });
