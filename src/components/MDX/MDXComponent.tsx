@@ -1,9 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import { generateClassName } from "@/util/generateClassName";
-
-import { GeistSans } from "geist/font/sans";
-import { code } from "./CodeBlock";
+import customComponents from "./CustomComponents";
 
 export default (props: any) => {
   return (
@@ -14,9 +11,7 @@ export default (props: any) => {
           remarkPlugins: [remarkGfm],
         },
       }}
-      components={{
-        code,
-      }}
+      components={customComponents}
     />
   );
 };

@@ -1,5 +1,5 @@
 import { generateClassName } from "@/util/generateClassName";
-import { LoopMDX } from "../LoopMDX";
+import { LoopMDX } from "../MDX/LoopMDX";
 
 export const PostBody = ({ id }: { id: string }) => {
   return (

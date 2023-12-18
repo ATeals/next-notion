@@ -4,7 +4,13 @@ import { useDarkMode } from "@/hooks/useDarkMode";
 import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from "react-syntax-highlighter";
 import { oneLight, oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-export const code = ({ node, inline, className, children, ...props }: SyntaxHighlighterProps) => {
+export const CodeBlock = ({
+  node,
+  inline,
+  className,
+  children,
+  ...props
+}: SyntaxHighlighterProps) => {
   const { isDarkMode } = useDarkMode();
   const match = /language-(\w+)/.exec(className || "");
   const language =

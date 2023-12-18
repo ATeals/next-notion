@@ -1,8 +1,8 @@
 import { LoadingIndicator } from "@/components/LoadingIndicator";
-import MDXComponent from "@/components/MDXComponent";
 import { RetrieveBlockChildren } from "@/notion/api";
 import { n2m } from "@/util/n2m";
 import { Suspense } from "react";
+import MDXComponent from "./MDXComponent";
 
 export const LoopMDX = async ({ postId, next }: { postId: string; next?: string }) => {
   const { results, next_cursor } = await RetrieveBlockChildren(postId, next);
