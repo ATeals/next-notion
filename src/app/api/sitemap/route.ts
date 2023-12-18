@@ -15,6 +15,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
     ${posts
       .map(
         (post) =>
+          post &&
           `<url><loc>${DOMAIN_URL}posts/${post.id}</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`
       )
       .join("\n")}
