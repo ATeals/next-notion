@@ -7,7 +7,6 @@ export const n2m = new NotionToMarkdown({
   notionClient: notion,
   config: {
     separateChildPage: true,
-    parseChildPages: true,
   },
 });
 
