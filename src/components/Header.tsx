@@ -23,9 +23,7 @@ export const Header = () => {
   const pathname = usePathname();
   const { isDarkMode } = useDarkMode();
   const scrollHeight = useScroll();
-
   const isBlur = BLUR_URLS.includes(pathname.split("/")[1]);
-
   const isScrolled = scrollHeight > 0 || !isBlur;
 
   return (
@@ -50,6 +48,7 @@ export const Header = () => {
 
         <Link href={"/"}>Home</Link>
         <Link href={"/tags"}>Tags</Link>
+        <Link href={"/tags/Collection"}>Collection</Link>
       </nav>
 
       <ul className="[&>*]:mx-3 [&>*]:text-md md:[&>*]:mx-3 flex items-center">

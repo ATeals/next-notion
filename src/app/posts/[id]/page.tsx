@@ -7,7 +7,7 @@ import { notionPostInfo } from "@/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { PostHeader } from "@/components/Post/PostHeader";
-import { PageProgressBar } from "@/components/Tag/PageProgressBar";
+import { PageProgressBar } from "@/components/PageProgressBar";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (

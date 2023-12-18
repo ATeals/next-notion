@@ -2,7 +2,7 @@
 
 import { PostInfo } from "@/notion/type";
 import Link from "next/link";
-import { ElapsedTimeComponent } from "../ElapsedTimeComponent";
+import { TimeLine } from "../TimeLine";
 
 export const Post = ({ post }: { post: PostInfo }) => {
   return (
@@ -36,7 +36,7 @@ export const Post = ({ post }: { post: PostInfo }) => {
       <Link key={post.id} href={`/posts/${post.id}`}>
         <h1 className="text-xl group-hover:underline dark:text-white"> {post.title}</h1>
         <p className="text-md text-gray-500 dark:text-gray-400"> {post.description}</p>
-        <ElapsedTimeComponent time={post.update_at || post.created_at} />
+        <TimeLine createdAt={post.createdAt} updataAt={post?.updateAt} />
       </Link>
     </div>
   );

@@ -1,0 +1,1 @@
+export { extractData } from "./extractData";

@@ -19,7 +19,7 @@ export const PostHeader = async ({ id }: { id: string }) => {
         }}
       ></div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center m-10">
+      <div className="absolute inset-0 flex flex-col items-center justify-center m-10 z-10">
         <div>
           <h1 className="text-gray-400 text-md md:text-center">{postInfo.created_at}</h1>
           <h1 className="text-gray-50 text-3xl italic">{postInfo.title}</h1>
@@ -35,6 +35,7 @@ export const PostHeader = async ({ id }: { id: string }) => {
       </div>
 
       <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
+      <div className="absolute w-full h-full bg-black opacity-10"></div>
     </div>
   );
 };

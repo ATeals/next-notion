@@ -2,8 +2,8 @@ export interface PostInfo {
   title: string;
   coverImg?: string;
   tags: Tag[];
-  created_at: string;
-  update_at: string;
+  createdAt: string;
+  updateAt: string;
   description: string;
   id: string;
 }

@@ -1,7 +1,7 @@
 import { n2m } from "@/util/n2m";
 import { RetrieveBlockChildren } from "@/notion/api";
 
-export const getPostData = async (id: string): Promise<string> => {
+export const getPostData = async (id: string) => {
   const arr = [];
   const res = await RetrieveBlockChildren(id);
 

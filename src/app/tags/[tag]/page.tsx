@@ -8,7 +8,7 @@ export default async ({ params: { tag } }: { params: { tag: string } }) => {
 
   return (
     <section className="mt-[80px] dark:text-white">
-      <h1 className="font-bold text-4xl my-10 w-[70%] px-[1em]">{tagname}</h1>
+      <h1 className="font-bold text-4xl my-10 xl:w-[1200px] px-20 mx-auto">{tagname}</h1>
       <section className="md:max-m-10 m-auto">
         <Suspense
           fallback={

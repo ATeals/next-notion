@@ -14,7 +14,7 @@ export const QueryDatabase = async (
       page_size: 100,
       sorts: [
         {
-          timestamp: "last_edited_time",
+          timestamp: "created_time",
           direction: "descending",
         },
       ],
