@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { Header } from "@/components/Header";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
