@@ -30,7 +30,7 @@ export const QueryDatabase = async (
         ],
       },
     },
-    next: { revalidate: 0, ...next },
+    next,
   });
 
   return res;
