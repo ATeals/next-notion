@@ -22,7 +22,7 @@ export const notionFetcher = async (
         Authorization: `Bearer ${process.env.NOTION_KEY}`,
       },
       body: JSON.stringify(body),
-      // next: { revalidate: 0, ...next },
+      next: { revalidate: 0, ...next },
     })
   ).json();
 
