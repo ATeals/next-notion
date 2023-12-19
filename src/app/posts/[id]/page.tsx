@@ -9,8 +9,6 @@ import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { PostHeader } from "@/components/Post/PostHeader";
 import { PageProgressBar } from "@/components/PageProgressBar";
 
-export const revalidate = 3600;
-
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <section>

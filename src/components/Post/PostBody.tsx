@@ -1,8 +1,6 @@
 import { generateClassName } from "@/util/generateClassName";
 import { LoopMDX } from "../MDX/LoopMDX";
 
-export const revalidate = false;
-
 export const PostBody = ({ id }: { id: string }) => {
   return (
     <div
