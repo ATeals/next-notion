@@ -31,6 +31,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         <link rel="icon" href="/favicon.ico" />
+
+        <link rel="alternate" type="application/rss+xml" href="/feed/rss" title="RSS" />
+        <link rel="alternate" type="application/atom+xml" href="/feed/atom" title="RSS Atom" />
+        <link rel="alternate" type="application/json" href="/feed/json" title="JSON Feed" />
       </head>
       <body className="background">
         <Header />
