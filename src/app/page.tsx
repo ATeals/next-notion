@@ -28,7 +28,25 @@ export default async () => {
         <div className="absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
       </div>
       <div className="background min-h-[680px] z-10">
-        <Suspense fallback={<LoadingIndicator />} children={<PostGrid fetcher={notionPosts} />} />
+        <Suspense
+          fallback={<LoadingIndicator />}
+          children={
+            <PostGrid
+              fetcher={() =>
+                notionPosts({
+                  filter: [
+                    {
+                      property: "tags",
+                      multi_select: {
+                        does_not_contain: "Collection",
+                      },
+                    },
+                  ],
+                })
+              }
+            />
+          }
+        />
       </div>
     </section>
   );
