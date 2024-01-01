@@ -1,5 +1,5 @@
+import { siteConfig } from "@/config";
 import { OpenGraph } from "@/types/openGraph";
-import { AnchorHTMLAttributes, Component, DetailedHTMLProps } from "react";
 
 export const a = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return children === "bookmark" ? (
@@ -10,7 +10,11 @@ export const a = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLA
 };
 
 const BookMark = async ({ href }: { href: string | undefined }) => {
-  const og: OpenGraph = await (await fetch(`http://localhost:3000/api/og?url=${href}`)).json();
+  const BASE_URL =
+    process.env.NODE_ENV === "production" ? siteConfig.url : "http://localhost:3000/";
+
+  const og: OpenGraph = await (await fetch(`${BASE_URL}api/og?url=${href}`)).json();
+
   const {
     ogTitle: title,
     ogImage: [image],
