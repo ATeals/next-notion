@@ -1,3 +1,4 @@
+import { RetrieveBlockChildren } from "@/notion/api";
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
 
@@ -40,4 +41,18 @@ n2m.setCustomTransformer("bookmark", async (block) => {
   let { bookmark } = block as any;
 
   return `[${bookmark?.caption[0]?.plain_text || bookmark?.url || ""}](${bookmark?.url || ""})`;
+});
+
+n2m.setCustomTransformer("column_list", async (block) => {
+  const mdBlocks_temp = await n2m.pageToMarkdown(block.id);
+  let final_md_string = `<div className="column" style={{ display: "flex", columnGap: "25px" }}>`;
+
+  for (const one_block of mdBlocks_temp) {
+    const mdString_temp = n2m.toMarkdownString(one_block.children);
+    final_md_string =
+      final_md_string +
+      `<div style={{width : "100%", display : "flex", justifyContent : "center", flexDirection : "column"}}>${mdString_temp.parent}</div>`;
+  }
+
+  return final_md_string + "</div>";
 });

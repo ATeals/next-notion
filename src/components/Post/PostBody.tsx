@@ -10,16 +10,18 @@ export const PostBody = ({ id }: { id: string }) => {
         "prose-quoteless",
         "prose-p:break-words",
         "prose-headings:mt-20 prose-headings:mb-2",
-        "prose-headings:text-2xl",
-        "prose-h3:text-lg",
+        "prose-h1:text-4xl prose-h1:text-teal-600",
+        "prose-h2:text-3xl",
+        "prose-h3:text-xl",
         "prose-p:my-5",
         "prose-hr:my-2",
         "prose-pre:bg-inherit",
-        "prose-a:dark:text-teal-400 prose-a:text-teal-700",
+        "prose-a:dark:text-teal-400 prose-a:text-teal-600",
         "prose-pre:px-0",
         "m-auto",
         "max-w-[680px]",
-        "animate-fadeIn"
+        "animate-fadeIn",
+        "prose-em:text-gray-400"
       )}
     >
       <LoopMDX postId={id} />
