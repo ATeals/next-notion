@@ -11,7 +11,7 @@ const pageCheck = (pageInfo: PageObjectResponse) => ({
   id: pageInfo.id,
   title:
     pageInfo.properties?.title.type === "title"
-      ? pageInfo.properties?.title.title[0].plain_text
+      ? pageInfo.properties?.title.title[0]?.plain_text
       : undefined,
 
   description:

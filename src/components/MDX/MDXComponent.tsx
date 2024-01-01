@@ -11,7 +11,7 @@ export default (props: any) => {
           remarkPlugins: [remarkGfm],
         },
       }}
-      components={customComponents}
+      components={{ ...customComponents }}
     />
   );
 };

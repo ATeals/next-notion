@@ -37,11 +37,11 @@ n2m.setCustomTransformer("image", async (block) => {
   })`;
 });
 
-n2m.setCustomTransformer("bookmark", async (block) => {
-  let { bookmark } = block as any;
+// n2m.setCustomTransformer("bookmark", async (block) => {
+//   let { bookmark } = block as any;
 
-  return `[${bookmark?.caption[0]?.plain_text || bookmark?.url || ""}](${bookmark?.url || ""})`;
-});
+//   return `[${bookmark?.caption[0]?.plain_text || bookmark?.url || ""}](${bookmark?.url || ""})`;
+// });
 
 n2m.setCustomTransformer("column_list", async (block) => {
   const mdBlocks_temp = await n2m.pageToMarkdown(block.id);
