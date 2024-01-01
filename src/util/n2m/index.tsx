@@ -51,7 +51,7 @@ n2m.setCustomTransformer("column_list", async (block) => {
     const mdString_temp = n2m.toMarkdownString(one_block.children);
     final_md_string =
       final_md_string +
-      `<div style={{width : "100%", display : "flex", justifyContent : "center", flexDirection : "column"}}>${mdString_temp.parent}</div>`;
+      `<div style={{width : "100%", display : "flex", flexDirection : "column"}}>${mdString_temp.parent}</div>`;
   }
 
   return final_md_string + "</div>";

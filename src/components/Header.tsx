@@ -50,6 +50,7 @@ export const Header = () => {
         <Link href={"/tags"}>Tags</Link>
         <div className="md:[&>*]:mr-6 hidden md:flex">
           <Link href={"/tags/Collection"}>Collection</Link>
+          <Link href={"/resume"}>Resume</Link>
         </div>
       </nav>
 
