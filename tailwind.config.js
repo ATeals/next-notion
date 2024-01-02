@@ -22,6 +22,7 @@ module.exports = {
       animation: {
         turn: "turn 0.7s ease-out",
         fadeIn: "fadeIn 0.7s ease-in-out",
+        darkening: "darkening 1s ease-in-out",
       },
       keyframes: {
         turn: {
@@ -48,6 +49,14 @@ module.exports = {
           "100%": {
             opacity: 1,
             transform: "translateY(0)",
+          },
+        },
+        darkening: {
+          "0%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 0.4,
           },
         },
       },

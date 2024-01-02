@@ -1,7 +1,7 @@
 "use client";
 
 import { useDarkMode } from "@/hooks/useDarkMode";
-import { useContext, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Giscus() {
   const ref = useRef<HTMLDivElement>(null);

@@ -35,7 +35,7 @@ export const PostHeader = async ({ id }: { id: string }) => {
       </div>
 
       <div className="absolute inset-x-0 bottom-0 h-60 bg-gradient-to-t from-white dark:from-[#191B1F] to-transparent"></div>
-      <div className="absolute w-full h-full bg-black opacity-10"></div>
+      <div className="absolute w-full h-full bg-black animate-darkening opacity-40"></div>
     </div>
   );
 };

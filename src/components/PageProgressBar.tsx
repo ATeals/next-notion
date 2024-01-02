@@ -1,7 +1,6 @@
 "use client";
 
 import { useScroll } from "@/hooks/useScroll";
-import { useEffect, useState } from "react";
 
 export const PageProgressBar = () => {
   const scrollHeight = useScroll();
