@@ -8,30 +8,35 @@ import { Suspense } from "react";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { PostHeader } from "@/components/Post/PostHeader";
 import { PageProgressBar } from "@/components/PageProgressBar";
+import { Toc, TocProvider } from "@/components/Toc";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
-    <section>
-      <PageProgressBar />
+    <TocProvider>
+      <section className="scroll-smooth">
+        <PageProgressBar />
 
-      <Suspense
-        fallback={
-          <div className="w-screen h-screen flex justify-center items-center">
-            <LoadingIndicator />
+        <Suspense
+          fallback={
+            <div className="w-screen h-screen flex justify-center items-center">
+              <LoadingIndicator />
+            </div>
+          }
+          children={<PostHeader id={id} />}
+        />
+
+        <div className="p-4 background">
+          <div className="max-w-[680px] mx-auto relative">
+            <Toc />
+            <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
           </div>
-        }
-        children={<PostHeader id={id} />}
-      />
 
-      <div className="p-4 background">
-        <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
-        <div className="">
           <Giscus />
         </div>
-      </div>
 
-      <Portal component={<RevalidatePost id={id} />} elementId={REVALIDATE_TAGNAME} />
-    </section>
+        <Portal component={<RevalidatePost id={id} />} elementId={REVALIDATE_TAGNAME} />
+      </section>
+    </TocProvider>
   );
 };
 

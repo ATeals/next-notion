@@ -18,10 +18,9 @@ export const PostBody = ({ id }: { id: string }) => {
         "prose-pre:bg-inherit",
         "prose-a:dark:text-teal-400 prose-a:text-teal-600",
         "prose-pre:px-0",
-        "m-auto",
-        "max-w-[680px]",
         "animate-fadeIn",
-        "prose-em:text-gray-400"
+        "prose-em:text-gray-400",
+        "max-w-[680px]"
       )}
     >
       <LoopMDX postId={id} />
