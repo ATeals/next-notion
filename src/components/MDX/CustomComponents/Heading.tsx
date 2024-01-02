@@ -51,7 +51,7 @@ export const h2 = ({ children, ...props }: React.HtmlHTMLAttributes<HTMLHeadingE
 };
 
 export const h3 = ({ children, ...props }: React.HtmlHTMLAttributes<HTMLHeadingElement>) => {
-  const heading: TocHeading = { type: "h2", text: children as string, isInViewport: false };
+  const heading: TocHeading = { type: "h3", text: children as string, isInViewport: false };
 
   const { ref } = useHeading(heading);
 

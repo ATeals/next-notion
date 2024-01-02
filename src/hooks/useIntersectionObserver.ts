@@ -21,7 +21,7 @@ export const useIntersectionObserver = ({
             if (onIntersecting) onIntersecting(entries);
           }
         },
-        { rootMargin: "-50px 0px -800px 0px", ...option }
+        { rootMargin: "-50px 0px -700px 0px", ...option }
       );
 
       if (node) {
