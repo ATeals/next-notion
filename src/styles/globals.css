@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -9,6 +13,10 @@ body {
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
 }
+
+/* * {
+  scroll-behavior: smooth;
+} */
 
 .background {
   @apply bg-white dark:bg-[#191B1F] transition duration-300 ease-in-out;

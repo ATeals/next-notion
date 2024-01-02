@@ -21,11 +21,11 @@ export const PostHeader = async ({ id }: { id: string }) => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center m-10 z-10">
         <div>
-          <h1 className="text-gray-400 text-md md:text-center">{postInfo?.createdAt}</h1>
+          <span className="text-gray-400 text-md md:text-center block">{postInfo?.createdAt}</span>
           <h1 className="text-gray-50 text-3xl italic">{postInfo?.title}</h1>
         </div>
 
-        <h1 className="text-gray-300 text-lg my-4">{postInfo?.description}</h1>
+        <span className="text-gray-300 text-lg my-4 block">{postInfo?.description}</span>
 
         <div className="mt-10">
           {postInfo?.tags?.map((tag) => (
