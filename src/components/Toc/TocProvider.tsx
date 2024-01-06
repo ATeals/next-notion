@@ -13,8 +13,8 @@ export const TocProvider = ({ children }: { children: ReactNode }) => {
   const [headings, setter] = useState<TocHeading[]>([]);
 
   return (
-    <HeadingsContext.Provider value={headings}>
-      <SetHeadingContext.Provider value={{ setter }}>{children}</SetHeadingContext.Provider>
-    </HeadingsContext.Provider>
+    <SetHeadingContext.Provider value={{ setter }}>
+      <HeadingsContext.Provider value={headings}>{children}</HeadingsContext.Provider>
+    </SetHeadingContext.Provider>
   );
 };

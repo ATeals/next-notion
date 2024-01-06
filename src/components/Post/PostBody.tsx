@@ -20,7 +20,8 @@ export const PostBody = ({ id }: { id: string }) => {
         "prose-pre:px-0",
         "animate-fadeIn",
         "prose-em:text-gray-400",
-        "max-w-[680px]"
+        "max-w-[680px]",
+        "[&>p]:animate-fadeIn"
       )}
     >
       <LoopMDX postId={id} />

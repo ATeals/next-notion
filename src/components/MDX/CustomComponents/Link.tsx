@@ -29,14 +29,16 @@ const BookMark = async ({ href }: { href: string | undefined }) => {
       <a
         href={href}
         target="_blank"
-        className="my-10 block lg:flex shadow-md hover:scale-105 group no-underline"
+        className="my-10 block lg:flex shadow-md hover:scale-105 group no-underline lg:max-h-[200px]"
       >
         <span className="block w-full lg:w-[40%] ">
           <img src={image.url} alt="ogImage" className="object-cover w-full h-full m-0" />
         </span>
-        <span className="flex flex-col justify-center p-5">
+        <span className="flex flex-col justify-center p-5 lg:w-[60%]">
           <span className="block mb-5">{title}</span>
-          <span className="block text-sm text-gray-400 mb-5">{description}</span>
+          <span className="block text-sm text-gray-400 mb-5 overflow-clip">
+            {description.length > 125 ? description.slice(1, 125) + "..." : description}
+          </span>
           <span className="lg:text-end text-sm text-gray-400 overflow-hidden overflow-ellipsis max-h-[1.4rem]">
             {url}
           </span>

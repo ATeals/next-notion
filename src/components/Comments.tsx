@@ -7,6 +7,8 @@ export default function Giscus() {
   const ref = useRef<HTMLDivElement>(null);
   const { isDarkMode } = useDarkMode();
 
+  const theme = isDarkMode ? "dark" : "light";
+
   useEffect(() => {
     if (!ref.current || ref.current.hasChildNodes()) return;
 
@@ -24,16 +26,15 @@ export default function Giscus() {
     scriptElem.setAttribute("data-reactions-enabled", "1");
     scriptElem.setAttribute("data-emit-metadata", "0");
     scriptElem.setAttribute("data-input-position", "top");
-    scriptElem.setAttribute("data-theme", isDarkMode ? "dark" : "light");
+    scriptElem.setAttribute("data-theme", theme);
     scriptElem.setAttribute("data-lang", "ko");
     // scriptElem.setAttribute("data-loading", "lazy");
     scriptElem.setAttribute("async", "");
-
     ref.current.appendChild(scriptElem);
   }, []);
 
   useEffect(() => {
-    const theme = isDarkMode ? "dark" : "light";
+    console.log("isDark", theme);
     const iframe = document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
     iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
   }, [isDarkMode]);

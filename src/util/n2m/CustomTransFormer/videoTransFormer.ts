@@ -11,7 +11,6 @@ const extractYoutubeVideoId = (url: string) => {
 
 export const videoTransFormer = async (block: ListBlockChildrenResponseResult) => {
   const { video } = block as VideoBlockObjectResponse;
-  console.log(block);
 
   let url: string = "";
 
@@ -19,5 +18,14 @@ export const videoTransFormer = async (block: ListBlockChildrenResponseResult) =
     url = "https://www.youtube.com/embed/" + extractYoutubeVideoId(video.external.url);
   }
 
-  return `<iframe style={{width : "100%", height : "400px"}} src="${url}" />`;
+  console.log(video);
+
+  return `
+    <figure style={{margin : "1rem"}}>
+      <iframe style={{width : "100%", height : "400px"}} src="${url}" />
+      <figcaption style={{marginTop : "0px"}}>${
+        video.caption[0]?.plain_text ? video.caption[0]?.plain_text : ""
+      }</figcaption>
+    </figure>
+  `;
 };
