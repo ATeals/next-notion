@@ -3,7 +3,7 @@ import { n2m } from "..";
 
 export const columnListTransFormer = async (block: ListBlockChildrenResponseResult) => {
   const mdBlocks_temp = await n2m.pageToMarkdown(block.id);
-  let final_md_string = `<div className="column" style={{ display: "flex", columnGap: "25px" }}>`;
+  let final_md_string = `<div className="md:flex" style={{ columnGap: "25px" }}>`;
 
   for (const one_block of mdBlocks_temp) {
     const mdString_temp = n2m.toMarkdownString(one_block.children);
