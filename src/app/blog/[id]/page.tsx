@@ -10,6 +10,8 @@ import { Toc, TocProvider } from "@/components/Toc";
 
 export const revalidate = false;
 
+export const dynamic = "force-static";
+
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <TocProvider>

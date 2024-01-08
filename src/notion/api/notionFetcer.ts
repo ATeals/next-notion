@@ -12,8 +12,9 @@ export const notionFetcher = async (
     next?: NextFetchRequestConfig;
   } = {}
 ) => {
-  const res = await (
-    await fetch(`https://api.notion.com/v1/${url}?${searchParams ? searchParams.join("&") : ""}`, {
+  const res = await fetch(
+    `https://api.notion.com/v1/${url}?${searchParams ? searchParams.join("&") : ""}`,
+    {
       method,
       headers: {
         accept: "application/json",
@@ -23,8 +24,10 @@ export const notionFetcher = async (
       },
       body: JSON.stringify(body),
       next: { revalidate: 0, ...next },
-    })
-  ).json();
+    }
+  );
 
-  return res;
+  console.log(res.headers);
+
+  return await res.json();
 };
