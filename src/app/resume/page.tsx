@@ -13,7 +13,7 @@ export default async () => {
       <section
         className={generateClassName(
           "dark:prose-invert",
-          "prose prose-stone prose-sm md:prose-lg  p-2",
+          "prose prose-stone prose-md md:prose-lg p-10",
           "prose-quoteless",
           "prose-p:break-words",
           "prose-headings:mt-10 prose-headings:mb-2",
