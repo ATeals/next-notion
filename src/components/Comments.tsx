@@ -34,7 +34,6 @@ export default function Giscus() {
   }, []);
 
   useEffect(() => {
-    console.log("isDark", theme);
     const iframe = document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
     iframe?.contentWindow?.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
   }, [isDarkMode]);

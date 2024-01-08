@@ -1,8 +1,6 @@
 import Giscus from "@/components/Comments";
-import Portal from "@/components/Portal";
 import { PostBody } from "@/components/Post/PostBody";
-import RevalidatePost from "@/components/RevalidatePost";
-import { LOGO_IMAGE, REVALIDATE_TAGNAME } from "@/constants";
+import { LOGO_IMAGE } from "@/constants";
 import { notionPostInfo } from "@/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/components/LoadingIndicator";
@@ -33,8 +31,6 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
 
           <Giscus />
         </div>
-
-        <Portal component={<RevalidatePost id={id} />} elementId={REVALIDATE_TAGNAME} />
       </section>
     </TocProvider>
   );

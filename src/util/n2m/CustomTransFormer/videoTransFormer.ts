@@ -18,8 +18,6 @@ export const videoTransFormer = async (block: ListBlockChildrenResponseResult) =
     url = "https://www.youtube.com/embed/" + extractYoutubeVideoId(video.external.url);
   }
 
-  console.log(video);
-
   return `
     <figure style={{margin : "1rem"}}>
       <iframe style={{width : "100%", height : "400px"}} src="${url}" />
