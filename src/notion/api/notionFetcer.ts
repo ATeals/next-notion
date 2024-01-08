@@ -26,8 +26,7 @@ export const notionFetcher = async (
       next: { revalidate: 0, ...next },
     }
   );
+  const data = await res.json();
 
-  console.log(res.headers);
-
-  return await res.json();
+  return data;
 };
