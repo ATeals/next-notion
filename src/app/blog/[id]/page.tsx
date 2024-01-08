@@ -8,6 +8,8 @@ import { PostHeader } from "@/components/Post/PostHeader";
 import { PageProgressBar } from "@/components/PageProgressBar";
 import { Toc, TocProvider } from "@/components/Toc";
 
+export const revalidate = false;
+
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <TocProvider>
