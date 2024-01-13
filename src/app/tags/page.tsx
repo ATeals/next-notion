@@ -1,15 +1,21 @@
-import { notionTags } from "@/notion";
-import { Tag } from "@/components/Tag";
+import { notionPosts } from "@/notion";
+import { Suspense } from "react";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { PostList } from "@/components/Post/PostList";
 
 export default async () => {
-  const tags = await notionTags();
   return (
-    <section className="mt-[80px] dark:text-white">
-      <h1 className="font-bold text-4xl my-10 xl:w-[1200px] px-10 md:px-20 mx-auto">TAGS</h1>
-      <section className="whitespace-normal shadow-xl p-5 py-10 rounded-xl min-h-[680px] md:max-w-[70%] m-auto">
-        {tags?.map((tag) => (
-          <Tag key={tag.id} tag={tag} className="text-[18px]" />
-        ))}
+    <section className="dark:text-white">
+      <h1 className="font-bold text-4xl my-5 px-10 md:px-20">ALL Post</h1>
+      <section className="md:max-m-10 m-auto">
+        <Suspense
+          fallback={
+            <div className="flex justify-center">
+              <LoadingIndicator />
+            </div>
+          }
+          children={<PostList fetcher={() => notionPosts()} />}
+        />
       </section>
     </section>
   );
