@@ -36,9 +36,9 @@ export default async () => {
                 notionPosts({
                   filter: [
                     {
-                      property: "tags",
-                      multi_select: {
-                        does_not_contain: "Collection",
+                      property: "snippet",
+                      checkbox: {
+                        equals: false,
                       },
                     },
                   ],
