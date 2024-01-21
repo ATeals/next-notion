@@ -4,6 +4,8 @@ import { GeistSans } from "geist/font/sans";
 import { Header } from "@/components/Header";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { siteConfig } from "@/config";
+import { DOMAIN_URL, MAIN_JPG } from "@/constants";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -49,8 +51,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 }
 
-// if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-//   document.documentElement.classList.add('dark');
-// } else {
-//   document.documentElement.classList.remove('dark')
-// }
+export const metadata = {
+  metadataBase: siteConfig.url,
+  title: "Teals",
+  description: "Teal의 개발 블로그",
+  canonical: "https://www.carrotins.com",
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: DOMAIN_URL,
+    title: "Teal's Log",
+    site_name: "Teal's Log",
+    images: [
+      {
+        url: DOMAIN_URL + MAIN_JPG,
+        width: 1200,
+        height: 630,
+        alt: "og: 이미지",
+      },
+    ],
+  },
+  twitter: {
+    handle: "@handle",
+    site: "@site",
+    cardType: "summary_large_image",
+  },
+};

@@ -1,5 +1,6 @@
 import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { PostGrid } from "@/components/Post/PostGrid";
+import { siteConfig } from "@/config";
 import { DOMAIN_URL, MAIN_JPG, MAIN_WEBP } from "@/constants";
 import { notionPosts } from "@/notion";
 import { Suspense } from "react";
@@ -50,30 +51,4 @@ export default async () => {
       </div>
     </section>
   );
-};
-
-export const metadata = {
-  title: "Teals",
-  description: "Teal의 개발 블로그",
-  canonical: "https://www.carrotins.com",
-  openGraph: {
-    type: "website",
-    locale: "ko_KR",
-    url: DOMAIN_URL,
-    title: "Teal's Log",
-    site_name: "Teal's Log",
-    images: [
-      {
-        url: DOMAIN_URL + MAIN_JPG,
-        width: 1200,
-        height: 630,
-        alt: "og: 이미지",
-      },
-    ],
-  },
-  twitter: {
-    handle: "@handle",
-    site: "@site",
-    cardType: "summary_large_image",
-  },
 };
