@@ -14,7 +14,8 @@ export const CodeBlock = ({
   const { isDarkMode } = useDarkMode();
   const match = /language-(\w+)/.exec(className || "");
   const language =
-    (match && (match[1] === "javascript" ? "jsx" : match[1] === "typescript" ? "tsx" : null)) || "";
+    (match && (match[1] === "javascript" ? "jsx" : match[1] === "typescript" ? "tsx" : match[1])) ||
+    "";
 
   return !inline && match ? (
     <SyntaxHighlighter
@@ -26,6 +27,8 @@ export const CodeBlock = ({
       {String(children).replace(/\n$/, "")}
     </SyntaxHighlighter>
   ) : (
-    <code {...props}>{children}</code>
+    <span className="bg-gray-300 px-1 rounded-md dark:bg-gray-700" {...props}>
+      {children}
+    </span>
   );
 };
