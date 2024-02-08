@@ -1,4 +1,4 @@
-import { RetrieveDatabase } from "@/feature/notion/api";
+import { RetrieveDatabase } from "@/service/notion/api";
 import { Tag } from "../type";
 
 export const getTags = async () => {

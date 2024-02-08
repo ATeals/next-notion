@@ -1,6 +1,6 @@
 "use client";
 
-import { PostInfo } from "@/feature/notion/type";
+import { PostInfo } from "@/service/notion/type";
 import { PostCard } from "@/feature/post/components/PostCard";
 import Link from "next/link";
 

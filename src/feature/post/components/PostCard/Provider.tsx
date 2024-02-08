@@ -1,4 +1,4 @@
-import { PostInfo } from "@/feature/notion/type";
+import { PostInfo } from "@/service/notion/type";
 import { createContext } from "react";
 
 export const PostContext = createContext<PostInfo | undefined>(undefined);

@@ -1,5 +1,5 @@
-import { PostInfo, Tag } from "@/feature/notion/type";
-import { QueryDatabase } from "@/feature/notion/api";
+import { PostInfo, Tag } from "@/service/notion/type";
+import { QueryDatabase } from "@/service/notion/api";
 import { extractData } from "../utils";
 
 export const getPosts = async ({ filter }: { filter?: any[] } = {}) => {

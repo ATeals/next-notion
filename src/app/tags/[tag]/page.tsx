@@ -1,8 +1,8 @@
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { PostList } from "@/feature/post/components/PostList";
 import { PostsFetcher } from "@/feature/post/components/ServerComponents/PostsFetcher";
-import { notionPostsFromTag } from "@/feature/notion";
-import { PostInfo } from "@/feature/notion/type";
+import { notionPostsFromTag } from "@/service/notion";
+import { PostInfo } from "@/service/notion/type";
 import { Suspense } from "react";
 
 export default async ({ params: { tag } }: { params: { tag: string } }) => {

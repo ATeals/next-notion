@@ -1,4 +1,4 @@
-import { notionPosts } from "@/feature/notion";
+import { notionPosts } from "@/service/notion";
 
 import Link from "next/link";
 import { generateClassName } from "@/feature/common/util/generateClassName";

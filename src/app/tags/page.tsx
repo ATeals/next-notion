@@ -1,8 +1,8 @@
-import { notionPosts } from "@/feature/notion";
+import { notionPosts } from "@/service/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { PostsFetcher } from "@/feature/post/components/ServerComponents/PostsFetcher";
-import { PostInfo } from "@/feature/notion/type";
+import { PostInfo } from "@/service/notion/type";
 import { PostList } from "@/feature/post/components/PostList";
 
 export default async () => {

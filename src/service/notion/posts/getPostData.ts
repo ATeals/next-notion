@@ -1,5 +1,5 @@
-import { n2m } from "@/feature/n2m";
-import { RetrieveBlockChildren } from "@/feature/notion/api";
+import { n2m } from "@/service/n2m";
+import { RetrieveBlockChildren } from "@/service/notion/api";
 
 export const getPostData = async (id: string) => {
   const arr = [];

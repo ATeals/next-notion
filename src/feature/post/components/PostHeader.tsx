@@ -1,4 +1,4 @@
-import { notionPostInfo } from "@/feature/notion";
+import { notionPostInfo } from "@/service/notion";
 import { MAIN_WEBP } from "@/constants";
 import { Tag } from "@/feature/Tag";
 

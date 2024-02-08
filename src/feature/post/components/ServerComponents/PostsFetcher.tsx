@@ -1,4 +1,4 @@
-import { PostInfo } from "@/feature/notion/type";
+import { PostInfo } from "@/service/notion/type";
 
 export const PostsFetcher = async ({
   fetcher,

@@ -1,5 +1,5 @@
 import { DOMAIN_URL } from "@/constants";
-import { notionPosts } from "@/feature/notion";
+import { notionPosts } from "@/service/notion";
 import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

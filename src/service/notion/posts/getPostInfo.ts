@@ -1,4 +1,4 @@
-import { RetrievePage } from "@/feature/notion/api";
+import { RetrievePage } from "@/service/notion/api";
 import { extractData } from "../utils";
 
 export const getPostInfo = async (id: string) => {

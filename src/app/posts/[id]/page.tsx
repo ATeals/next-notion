@@ -1,6 +1,6 @@
 import Giscus from "@/feature/comment/Comments";
 import { LOGO_IMAGE } from "@/constants";
-import { notionPostInfo } from "@/feature/notion";
+import { notionPostInfo } from "@/service/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { PageProgressBar } from "@/feature/common/components/Header/PageProgressBar";
