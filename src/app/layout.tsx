@@ -1,11 +1,11 @@
-import Footer from "@/components/Footer";
+import Footer from "@/feature/common/components/Footer";
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
-import { Header } from "@/components/Header";
+import { Header } from "@/feature/common/components/Header/Header";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { siteConfig } from "@/config";
-import { DOMAIN_URL, MAIN_JPG } from "@/constants";
+import { SITE_CONFIG } from "@/config";
+import { MAIN_JPG } from "@/feature/common/constants";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -52,19 +52,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 export const metadata = {
-  metadataBase: siteConfig.url,
+  metadataBase: SITE_CONFIG.url,
   title: "Teals",
   description: "Teal의 개발 블로그",
   canonical: "https://www.carrotins.com",
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    url: DOMAIN_URL,
+    url: SITE_CONFIG.url,
     title: "Teal's Log",
     site_name: "Teal's Log",
     images: [
       {
-        url: DOMAIN_URL + MAIN_JPG,
+        url: SITE_CONFIG.url + MAIN_JPG,
         width: 1200,
         height: 630,
         alt: "og: 이미지",

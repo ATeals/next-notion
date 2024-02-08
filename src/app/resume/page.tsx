@@ -1,9 +1,8 @@
-import { LoopMDX } from "@/components/MDX/LoopMDX";
-import MDXComponent from "@/components/MDX/MDXComponent";
-import Portal from "@/components/Portal";
-import RevalidatePost from "@/components/RevalidatePost";
-import { REVALIDATE_TAGNAME } from "@/constants";
-import { generateClassName } from "@/util/generateClassName";
+import { LoopMDX } from "@/feature/MDX/LoopMDX";
+import Portal from "@/feature/common/components/Portal";
+import RevalidatePost from "@/feature/post/components/RevalidatePost";
+import { REVALIDATE_TAGNAME } from "@/feature/common/constants";
+import { generateClassName } from "@/feature/common/util/generateClassName";
 
 export default async () => {
   const postId = process.env.RESUME_PAGE_ID!;

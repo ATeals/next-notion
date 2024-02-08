@@ -1,11 +1,9 @@
-import { notionPosts } from "@/notion";
-
 import Link from "next/link";
-import { TagList } from "../tags/@tagList/TagList";
-import { generateClassName } from "@/util/generateClassName";
+import { generateClassName } from "@/feature/common/util/generateClassName";
+import { postService } from "@/service/post";
 
 export default async () => {
-  const posts = await notionPosts({
+  const posts = await postService.getPosts({
     filter: [
       {
         property: "snippet",

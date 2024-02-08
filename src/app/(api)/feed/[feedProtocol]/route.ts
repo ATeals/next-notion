@@ -1,6 +1,5 @@
-import { siteConfig } from "@/config";
-import { notionPosts } from "@/notion";
-import { isFullPost } from "@/notion/utils/isFullPost";
+import { SITE_CONFIG } from "@/config";
+import { postService } from "@/service/post";
 import { Feed } from "feed";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,32 +7,30 @@ export const GET = async (
   req: NextRequest,
   { params: { feedProtocol } }: { params: { feedProtocol: string } }
 ) => {
-  const posts = await notionPosts();
+  const posts = await postService.getPosts();
 
   const feed = new Feed({
-    title: siteConfig.title,
-    description: siteConfig.description,
-    id: siteConfig.url,
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    id: SITE_CONFIG.url,
     language: "ko",
-    image: `${siteConfig.url}images/main.jpg`,
-    favicon: `${siteConfig.url}favicon.ico`,
-    copyright: `All rights reserved since ${siteConfig.since}, ${siteConfig.owner.name}`,
-    author: siteConfig.owner,
+    image: `${SITE_CONFIG.url}images/main.jpg`,
+    favicon: `${SITE_CONFIG.url}favicon.ico`,
+    copyright: `All rights reserved since ${SITE_CONFIG.since}, ${SITE_CONFIG.owner.name}`,
+    author: SITE_CONFIG.owner,
     generator: "generate-rss",
-    link: siteConfig.url,
+    link: SITE_CONFIG.url,
   });
 
   posts.forEach((post) => {
-    if (post === undefined || !isFullPost(post)) return;
-
     feed.addItem({
       title: post.title,
       id: post.id,
-      link: `${siteConfig.url}posts/${post.id}`,
+      link: `${SITE_CONFIG.url}posts/${post.id}`,
       description: post.description,
-      author: [siteConfig.owner],
-      contributor: [siteConfig.owner],
-      image: post.coverImg || `${siteConfig.url}images/main.jpg`,
+      author: [SITE_CONFIG.owner],
+      contributor: [SITE_CONFIG.owner],
+      image: post.coverImg || `${SITE_CONFIG.url}images/main.jpg`,
       date: new Date(post.createdAt),
       category: post.tags.map((tag) => ({ name: tag.name })),
     });
