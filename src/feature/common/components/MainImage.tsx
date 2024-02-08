@@ -1,4 +1,4 @@
-import { MAIN_WEBP } from "@/constants";
+import { MAIN_WEBP } from "@/feature/common/constants";
 
 export const MainImage = () => {
   return (

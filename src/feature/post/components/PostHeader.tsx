@@ -1,5 +1,5 @@
 import { notionPostInfo } from "@/service/notion";
-import { MAIN_WEBP } from "@/constants";
+import { MAIN_WEBP } from "@/feature/common/constants";
 import { Tag } from "@/feature/Tag";
 
 export const PostHeader = async ({ id }: { id: string }) => {

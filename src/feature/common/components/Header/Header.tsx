@@ -1,6 +1,6 @@
 "use client";
 
-import { LOGO_IMAGE } from "@/constants";
+import { LOGO_IMAGE } from "@/feature/common/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DarkModeBtn } from "./DarkModeBtn";

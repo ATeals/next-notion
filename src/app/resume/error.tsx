@@ -2,7 +2,7 @@
 
 import Portal from "@/feature/common/components/Portal";
 import RevalidatePost from "@/feature/post/components/RevalidatePost";
-import { REVALIDATE_TAGNAME } from "@/constants";
+import { REVALIDATE_TAGNAME } from "@/feature/common/constants";
 
 export default () => {
   const postId = process.env.RESUME_PAGE_ID!;

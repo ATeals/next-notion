@@ -1,4 +1,4 @@
-import { REVALIDATE_TAGNAME } from "@/constants";
+import { REVALIDATE_TAGNAME } from "@/feature/common/constants";
 
 export default () => {
   return (

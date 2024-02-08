@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config";
+import { SITE_CONFIG } from "@/config";
 import { OpenGraph } from "@/types/openGraph";
 
 export const a = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
@@ -11,7 +11,7 @@ export const a = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLA
 
 const BookMark = async ({ href }: { href: string | undefined }) => {
   const BASE_URL =
-    process.env.NODE_ENV === "production" ? siteConfig.url : "http://localhost:3000/";
+    process.env.NODE_ENV === "production" ? SITE_CONFIG.url : "http://localhost:3000/";
 
   const og: OpenGraph = await (await fetch(`${BASE_URL}api/og?url=${href}`)).json();
 
