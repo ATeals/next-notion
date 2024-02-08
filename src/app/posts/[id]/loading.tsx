@@ -1,4 +1,4 @@
-import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 
 export default () => {
   return (

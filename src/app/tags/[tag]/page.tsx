@@ -1,7 +1,8 @@
-import { LoadingIndicator } from "@/components/LoadingIndicator";
-import { PostGrid } from "@/components/Post/PostGrid";
-import { PostList } from "@/components/Post/PostList";
-import { notionPostsFromTag } from "@/notion";
+import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
+import { PostList } from "@/feature/post/components/PostList";
+import { PostsFetcher } from "@/feature/post/components/ServerComponents/PostsFetcher";
+import { notionPostsFromTag } from "@/feature/notion";
+import { PostInfo } from "@/feature/notion/type";
 import { Suspense } from "react";
 
 export default async ({ params: { tag } }: { params: { tag: string } }) => {
@@ -17,7 +18,12 @@ export default async ({ params: { tag } }: { params: { tag: string } }) => {
               <LoadingIndicator />
             </div>
           }
-          children={<PostList fetcher={() => notionPostsFromTag(tagname)} />}
+          children={
+            <PostsFetcher
+              children={({ posts }: { posts: PostInfo[] }) => <PostList posts={posts} />}
+              fetcher={() => notionPostsFromTag(tagname)}
+            />
+          }
         />
       </section>
     </section>

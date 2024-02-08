@@ -1,7 +1,7 @@
 "use client";
 
-import Portal from "@/components/Portal";
-import RevalidatePost from "@/components/RevalidatePost";
+import Portal from "@/feature/common/components/Portal";
+import RevalidatePost from "@/feature/post/components/RevalidatePost";
 import { REVALIDATE_TAGNAME } from "@/constants";
 
 export default () => {

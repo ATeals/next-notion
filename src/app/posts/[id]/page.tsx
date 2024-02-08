@@ -1,19 +1,18 @@
-import Giscus from "@/components/Comments";
-import { PostBody } from "@/components/Post/PostBody";
+import Giscus from "@/feature/comment/Comments";
 import { LOGO_IMAGE } from "@/constants";
-import { notionPostInfo } from "@/notion";
+import { notionPostInfo } from "@/feature/notion";
 import { Suspense } from "react";
-import { LoadingIndicator } from "@/components/LoadingIndicator";
-import { PostHeader } from "@/components/Post/PostHeader";
-import { PageProgressBar } from "@/components/PageProgressBar";
-import { Toc, TocProvider } from "@/components/Toc";
+import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
+import { PageProgressBar } from "@/feature/common/components/Header/PageProgressBar";
+import { PostHeader } from "@/feature/post/components/PostHeader";
+import { PostBody } from "@/feature/post/components/PostBody";
+import { Toc, TocProvider } from "@/feature/Toc/components";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <TocProvider>
+      <PageProgressBar />
       <section className="scroll-smooth">
-        <PageProgressBar />
-
         <Suspense
           fallback={
             <div className="w-screen h-screen flex justify-center items-center">
@@ -28,7 +27,6 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
             <Toc />
             <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
           </div>
-
           <Giscus />
         </div>
       </section>

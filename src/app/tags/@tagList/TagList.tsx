@@ -1,8 +1,8 @@
 "use client";
 
-import { Tag as TagComponent } from "@/components/Tag";
-import { Tag } from "@/notion/type";
-import { generateClassName } from "@/util/generateClassName";
+import { Tag as TagComponent } from "@/feature/Tag";
+import { Tag } from "@/feature/notion/type";
+import { generateClassName } from "@/feature/common/util/generateClassName";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 

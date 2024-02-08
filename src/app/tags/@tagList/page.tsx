@@ -1,4 +1,4 @@
-import { notionTags } from "@/notion";
+import { notionTags } from "@/feature/notion";
 import { TagList } from "./TagList";
 
 export default async () => {

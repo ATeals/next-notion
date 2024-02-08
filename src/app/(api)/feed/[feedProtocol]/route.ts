@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config";
-import { notionPosts } from "@/notion";
-import { isFullPost } from "@/notion/utils/isFullPost";
+import { notionPosts } from "@/feature/notion";
+import { isFullPost } from "@/feature/notion/utils/isFullPost";
 import { Feed } from "feed";
 import { NextRequest, NextResponse } from "next/server";
 

@@ -1,7 +1,7 @@
-import Footer from "@/components/Footer";
+import Footer from "@/feature/common/components/Footer";
 import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
-import { Header } from "@/components/Header";
+import { Header } from "@/feature/common/components/Header/Header";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { siteConfig } from "@/config";

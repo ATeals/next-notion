@@ -1,5 +1,5 @@
 import { DOMAIN_URL } from "@/constants";
-import { notionPosts } from "@/notion";
+import { notionPosts } from "@/feature/notion";
 import { NextRequest, NextResponse } from "next/server";
 
 export const revalidate = 0;
