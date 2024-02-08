@@ -1,17 +1,18 @@
-import { PostDTO, PostRepository } from "./repository";
+import { PostRepository } from "./repository";
+import { PostType } from "./type";
 
 export class PostService {
   constructor(private postRepository: PostRepository) {}
 
-  async getPostData({ id }: PostDTO["getByID"]) {
+  async getPostData({ id }: PostType["getByID"]) {
     return this.postRepository.getPostData({ id });
   }
 
-  async getPosts({ filter }: PostDTO["getByFilter"] = {}) {
+  async getPosts({ filter }: PostType["getByFilter"] = {}) {
     return this.postRepository.getPosts({ filter });
   }
 
-  async getPostInfo({ id }: PostDTO["getByID"]) {
+  async getPostInfo({ id }: PostType["getByID"]) {
     return this.postRepository.getPostInfo({ id });
   }
 
@@ -19,14 +20,14 @@ export class PostService {
     return this.postRepository.getTagAll();
   }
 
-  async getPostsFromTag({ tag }: PostDTO["getByTag"]) {
+  async getPostsFromTag({ tag }: PostType["getByTag"]) {
     return this.postRepository.getPostsFromTag({ tag });
   }
 
   async getPartialPostData({
     id,
     cursor,
-  }: PostDTO["getPartialPost"]): Promise<PostDTO["getPartialPostResponse"]> {
+  }: PostType["getPartialPost"]): Promise<PostType["getPartialPostResponse"]> {
     return this.postRepository.getPartialPostData({ id, cursor });
   }
 }

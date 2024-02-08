@@ -1,30 +1,3 @@
-export interface PostInfo {
-  title: string;
-  coverImg: string;
-  tags: Tag[];
-  createdAt: string;
-  updateAt: string;
-  description: string;
-  id: string;
-}
-
-export interface Tag {
-  id: string;
-  name: string;
-  color: string;
-}
-
-export interface CompactPost {
-  title: string;
-  id: string;
-}
-
-export interface AsideListObject {
-  title: string;
-  id: string;
-  posts: Array<CompactPost>;
-}
-
 export interface NotionPage {
   id: string;
   parent: {

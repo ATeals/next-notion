@@ -1,7 +1,7 @@
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { PostInfo } from "../type";
 import { MAIN_WEBP } from "@/feature/common/constants";
 import { PostAdapter } from "@/service/post/Adapter";
+import { PostInfo } from "@/feature/post/type";
 
 export class NotionPostAdapter implements PostAdapter {
   private id;

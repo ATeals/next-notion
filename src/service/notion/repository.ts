@@ -3,7 +3,8 @@ import { NotionToMarkdown } from "notion-to-md";
 import { PostAdapterClass, PostType } from "../post/type";
 import { PostRepository } from "../post/repository";
 import { QueryDatabase, RetrieveBlockChildren, RetrieveDatabase, RetrievePage } from "./api";
-import { Tag } from "./type";
+import { isFullPageResponse } from "./utils/isFullPageResponse";
+import { Tag } from "@/feature/Tag/type";
 
 export class NotionPostRepository implements PostRepository {
   constructor(
