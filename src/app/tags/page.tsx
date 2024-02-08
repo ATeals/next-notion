@@ -1,9 +1,9 @@
-import { notionPosts } from "@/service/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { PostsFetcher } from "@/feature/post/components/ServerComponents/PostsFetcher";
-import { PostInfo } from "@/service/notion/type";
 import { PostList } from "@/feature/post/components/PostList";
+import { PostInfo } from "@/feature/post/type";
+import { postService } from "@/service/post";
 
 export default async () => {
   return (
@@ -19,7 +19,7 @@ export default async () => {
           children={
             <PostsFetcher
               children={({ posts }: { posts: PostInfo[] }) => <PostList posts={posts} />}
-              fetcher={() => notionPosts()}
+              fetcher={() => postService.getPosts()}
             />
           }
         />

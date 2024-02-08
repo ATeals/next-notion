@@ -1,12 +1,12 @@
 import Giscus from "@/feature/comment/Comments";
 import { LOGO_IMAGE } from "@/feature/common/constants";
-import { notionPostInfo } from "@/service/notion";
 import { Suspense } from "react";
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { PageProgressBar } from "@/feature/common/components/Header/PageProgressBar";
 import { PostHeader } from "@/feature/post/components/PostHeader";
 import { PostBody } from "@/feature/post/components/PostBody";
 import { Toc, TocProvider } from "@/feature/Toc/components";
+import { postService } from "@/service/post";
 
 export default async ({ params: { id } }: { params: { id: string } }) => {
   return (
@@ -35,7 +35,7 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
 };
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
-  const post = await notionPostInfo(id);
+  const post = await postService.getPostInfo({ id });
   return (
     post && {
       title: ` ${post.title} | ATeals`,

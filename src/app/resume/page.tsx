@@ -1,5 +1,4 @@
 import { LoopMDX } from "@/feature/MDX/LoopMDX";
-import MDXComponent from "@/feature/MDX/MDXComponent";
 import Portal from "@/feature/common/components/Portal";
 import RevalidatePost from "@/feature/post/components/RevalidatePost";
 import { REVALIDATE_TAGNAME } from "@/feature/common/constants";

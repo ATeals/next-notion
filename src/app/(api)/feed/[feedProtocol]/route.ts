@@ -1,6 +1,5 @@
 import { SITE_CONFIG } from "@/config";
-import { notionPosts } from "@/service/notion";
-import { isFullPost } from "@/service/notion/utils/isFullPost";
+import { postService } from "@/service/post";
 import { Feed } from "feed";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -8,7 +7,7 @@ export const GET = async (
   req: NextRequest,
   { params: { feedProtocol } }: { params: { feedProtocol: string } }
 ) => {
-  const posts = await notionPosts();
+  const posts = await postService.getPosts();
 
   const feed = new Feed({
     title: SITE_CONFIG.title,
@@ -24,8 +23,6 @@ export const GET = async (
   });
 
   posts.forEach((post) => {
-    if (post === undefined || !isFullPost(post)) return;
-
     feed.addItem({
       title: post.title,
       id: post.id,

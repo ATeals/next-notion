@@ -1,10 +1,10 @@
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
-import { notionPosts } from "@/service/notion";
 import { Suspense } from "react";
 import { PostGrid } from "@/feature/post/components/PostGrid";
 import { PostsFetcher } from "@/feature/post/components/ServerComponents/PostsFetcher";
-import { PostInfo } from "@/service/notion/type";
 import { MainImage } from "@/feature/common/components/MainImage";
+import { postService } from "@/service/post";
+import { PostInfo } from "@/feature/post/type";
 
 export default async () => {
   return (
@@ -17,7 +17,7 @@ export default async () => {
             <PostsFetcher
               children={({ posts }: { posts: PostInfo[] }) => <PostGrid posts={posts} />}
               fetcher={() =>
-                notionPosts({
+                postService.getPosts({
                   filter: [
                     {
                       property: "snippet",

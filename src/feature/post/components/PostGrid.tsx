@@ -1,8 +1,8 @@
 "use client";
 
-import { PostInfo } from "@/service/notion/type";
 import { PostCard } from "@/feature/post/components/PostCard";
 import Link from "next/link";
+import { PostInfo } from "../type";
 
 export const PostGrid = ({ posts }: { posts: Array<PostInfo> }) => {
   return (

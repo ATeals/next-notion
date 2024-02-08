@@ -1,4 +1,4 @@
-import { Tag } from "../../service/notion/type";
+import { Tag } from "../Tag/type";
 
 export interface PostInfo {
   title: string;

@@ -53,20 +53,20 @@ export class NotionPostRepository implements PostRepository {
     return tags.type === "multi_select" ? (tags.multi_select.options as Tag[]) : [];
   }
 
-  async getPostInfo({ id }: PostType["getByID"]): Promise<PostType["adapter"]> {
+  async getPostInfo({ id }: PostType["getByID"]): Promise<PostType["info"]> {
     const response = await RetrievePage(id);
 
-    return new this.adapter(response);
+    return new this.adapter(response).info;
   }
 
-  async getPosts({ filter }: PostType["getByFilter"]): Promise<PostType["adapter"][]> {
+  async getPosts({ filter }: PostType["getByFilter"]): Promise<PostType["info"][]> {
     const { results } = await QueryDatabase(process.env.POST_DB_ID as string, {
       next: { tags: ["series"] },
       filter,
     });
 
-    const PostList = results?.reduce((a: Array<PostType["adapter"]>, c) => {
-      return isFullPageResponse(c) ? [...a, new this.adapter(c)] : a;
+    const PostList = results?.reduce((a: Array<PostType["info"]>, c) => {
+      return isFullPageResponse(c) ? [...a, new this.adapter(c).info] : a;
     }, []);
 
     return PostList;
@@ -84,8 +84,8 @@ export class NotionPostRepository implements PostRepository {
       ],
     });
 
-    const PostList = results?.reduce((a: PostType["adapter"][], c) => {
-      return isFullPageResponse(c) ? [...a, new this.adapter(c)] : a;
+    const PostList = results?.reduce((a: PostType["info"][], c) => {
+      return isFullPageResponse(c) ? [...a, new this.adapter(c).info] : a;
     }, []);
 
     return PostList;

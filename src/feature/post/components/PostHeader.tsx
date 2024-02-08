@@ -1,16 +1,16 @@
-import { notionPostInfo } from "@/service/notion";
 import { MAIN_WEBP } from "@/feature/common/constants";
 import { Tag } from "@/feature/Tag";
+import { postService } from "@/service/post";
 
 export const PostHeader = async ({ id }: { id: string }) => {
-  const postInfo = await notionPostInfo(id);
+  const post = await postService.getPostInfo({ id });
 
   return (
     <div className="relative h-screen w-screen animate-fadeIn z-[-1]">
       <div
         className="absolute bg-no-repeat"
         style={{
-          backgroundImage: `url(${postInfo?.coverImg || MAIN_WEBP})`,
+          backgroundImage: `url(${post.coverImg})`,
           backgroundPosition: "center top",
           backgroundSize: "cover",
           position: "fixed",
@@ -21,14 +21,14 @@ export const PostHeader = async ({ id }: { id: string }) => {
 
       <div className="absolute inset-0 flex flex-col items-center justify-center m-10 z-10">
         <div>
-          <span className="text-gray-400 text-md md:text-center block">{postInfo?.createdAt}</span>
-          <h1 className="text-gray-50 text-3xl italic">{postInfo?.title}</h1>
+          <span className="text-gray-400 text-md md:text-center block">{post.createdAt}</span>
+          <h1 className="text-gray-50 text-3xl italic">{post.title}</h1>
         </div>
 
-        <span className="text-gray-300 text-lg my-4 block">{postInfo?.description}</span>
+        <span className="text-gray-300 text-lg my-4 block">{post.description}</span>
 
         <div className="mt-10">
-          {postInfo?.tags?.map((tag) => (
+          {post.tags.map((tag) => (
             <Tag key={tag.id} tag={tag} className="text-gray-300" />
           ))}
         </div>

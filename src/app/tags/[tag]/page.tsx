@@ -1,8 +1,8 @@
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { PostList } from "@/feature/post/components/PostList";
 import { PostsFetcher } from "@/feature/post/components/ServerComponents/PostsFetcher";
-import { notionPostsFromTag } from "@/service/notion";
-import { PostInfo } from "@/service/notion/type";
+import { PostInfo } from "@/feature/post/type";
+import { postService } from "@/service/post";
 import { Suspense } from "react";
 
 export default async ({ params: { tag } }: { params: { tag: string } }) => {
@@ -21,7 +21,7 @@ export default async ({ params: { tag } }: { params: { tag: string } }) => {
           children={
             <PostsFetcher
               children={({ posts }: { posts: PostInfo[] }) => <PostList posts={posts} />}
-              fetcher={() => notionPostsFromTag(tagname)}
+              fetcher={() => postService.getPostsFromTag({ tag: tagname })}
             />
           }
         />

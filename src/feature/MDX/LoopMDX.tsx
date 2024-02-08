@@ -1,28 +1,22 @@
 import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
-import { RetrieveBlockChildren } from "@/service/notion/api";
-import { n2m } from "@/service/n2m";
 import { Suspense } from "react";
 import MDXComponent from "./MDXComponent";
+import { postService } from "@/service/post";
 
 export const LoopMDX = async ({ postId, next }: { postId: string; next?: string }) => {
-  const { results, next_cursor } = await RetrieveBlockChildren(postId, next);
-
-  const x = await n2m.blocksToMarkdown(results);
-  const { parent } = n2m.toMarkdownString(x);
-
-  if (next === next_cursor) return <h1>Error!!!!!</h1>;
+  const { markdown, cursor } = await postService.getPartialPostData({ id: postId, cursor: next });
 
   return (
     <>
-      <MDXComponent source={parent} />
-      {next_cursor !== null && (
+      <MDXComponent source={markdown} />
+      {cursor && (
         <Suspense
           fallback={
             <div className="flex justify-center">
               <LoadingIndicator />
             </div>
           }
-          children={<LoopMDX postId={postId} next={next_cursor} />}
+          children={<LoopMDX postId={postId} next={cursor} />}
         />
       )}
     </>

@@ -3,6 +3,7 @@ import { PostAdapter } from "./adapter";
 
 export interface PostType {
   adapter: PostAdapter;
+  info: PostInfo;
   getByID: getById;
   getByFilter: getByFilter;
   getByTag: { tag: string };
