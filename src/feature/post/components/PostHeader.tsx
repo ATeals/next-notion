@@ -1,14 +1,14 @@
-import { MAIN_WEBP } from "@/feature/common/constants";
-import { Tag } from "@/feature/Tag";
+import { Tag } from "@/feature/Tag/components";
 import { postService } from "@/service/post";
+import Link from "next/link";
 
 export const PostHeader = async ({ id }: { id: string }) => {
   const post = await postService.getPostInfo({ id });
 
   return (
-    <div className="relative h-screen w-screen animate-fadeIn z-[-1]">
+    <div className="relative h-screen w-screen animate-fadeIn">
       <div
-        className="absolute bg-no-repeat"
+        className="absolute bg-no-repeat z-[-1]"
         style={{
           backgroundImage: `url(${post.coverImg})`,
           backgroundPosition: "center top",
