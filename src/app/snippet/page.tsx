@@ -3,16 +3,7 @@ import { generateClassName } from "@/feature/common/util/generateClassName";
 import { postService } from "@/service/post";
 
 export default async () => {
-  const posts = await postService.getPosts({
-    filter: [
-      {
-        property: "snippet",
-        checkbox: {
-          equals: true,
-        },
-      },
-    ],
-  });
+  const posts = await postService.getSnippetPosts();
   return (
     <section className="dark:text-white mt-[80px] max-w-[680px] m-auto">
       <h1 className="font-bold text-4xl my-5 px-10 md:px-20">Snippet</h1>
