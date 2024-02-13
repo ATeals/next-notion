@@ -27,7 +27,10 @@ export const CodeBlock = ({
       {String(children).replace(/\n$/, "")}
     </SyntaxHighlighter>
   ) : (
-    <span className="bg-gray-300 px-1 rounded-md dark:bg-gray-700" {...props}>
+    <span
+      className="bg-gray-300 px-1 rounded-md dark:bg-gray-700 text-black dark:text-gray-200"
+      {...props}
+    >
       {children}
     </span>
   );

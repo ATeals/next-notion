@@ -4,7 +4,7 @@ import { Description } from "./Description";
 import { Image } from "./Image";
 import { Provider } from "./Provider";
 import { Tags } from "./Tags";
-import { TimeLine } from "./TimeLien";
+import { ElapsedTimeLine, TimeLine } from "./TimeLine";
 import { Title } from "./Title";
 
 type ComponentErrorType = "ContextError";
@@ -21,4 +21,5 @@ export const PostCard = Object.assign(Provider, {
   Tags,
   Image,
   TimeLine,
+  ElapsedTimeLine,
 });

@@ -10,7 +10,7 @@ export const Tags = () => {
         <Link
           href={`/tags/${tag.name}`}
           key={tag.id + post.id}
-          className="hover:underline cursor-pointer mr-2 text-gray-500"
+          className="no-underline hover:underline cursor-pointer mr-2 text-gray-500"
         >
           #{tag.name}
         </Link>
