@@ -71,23 +71,4 @@ export class NotionPostRepository implements PostRepository {
 
     return PostList;
   }
-
-  async getPostsFromTag({ tag }: PostType["getByTag"]) {
-    const { results } = await QueryDatabase(process.env.POST_DB_ID as string, {
-      filter: [
-        {
-          property: "tags",
-          multi_select: {
-            contains: tag,
-          },
-        },
-      ],
-    });
-
-    const PostList = results?.reduce((a: PostType["info"][], c) => {
-      return isFullPageResponse(c) ? [...a, new this.adapter(c).info] : a;
-    }, []);
-
-    return PostList;
-  }
 }

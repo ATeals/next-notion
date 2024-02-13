@@ -35,7 +35,7 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
 };
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
-  const post = await postService.getPostInfo({ id });
+  const post = await postService.getPostInfoById(id);
   return (
     post && {
       title: ` ${post.title} | ATeals`,

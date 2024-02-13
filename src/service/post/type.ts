@@ -1,5 +1,5 @@
 import { PostInfo } from "@/feature/post/type";
-import { PostAdapter } from "./adapter";
+import { PostAdapter } from "./Adapter";
 
 export interface PostType {
   adapter: PostAdapter;
