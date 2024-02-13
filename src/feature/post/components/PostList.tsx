@@ -18,7 +18,7 @@ export const PostList = ({ posts }: { posts: PostInfo[] }) => {
               <Link href={`/posts/${post.id}`}>
                 <PostCard.Title />
                 <PostCard.Description />
-                <PostCard.TimeLine />
+                <PostCard.ElapsedTimeLine />
               </Link>
             </PostCard>
           </PostCard>

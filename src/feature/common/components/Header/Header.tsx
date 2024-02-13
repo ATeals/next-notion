@@ -46,12 +46,12 @@ export const Header = () => {
           <img src={LOGO_IMAGE} alt="logo" width={30} height={30} />
         </Link>
 
-        <Link href={"/"}>Home</Link>
-        <Link href={"/tags"}>Tags</Link>
-        <div className="md:[&>*]:mr-6 hidden md:flex">
-          <Link href={"/snippet"}>Snippet</Link>
-          {/* <Link href={"/resume"}>Resume</Link> */}
+        <div className="hidden md:flex">
+          <Link href={"/"}>Home</Link>
         </div>
+        <Link href={"/tags"}>Tags</Link>
+        <Link href={"/snippet"}>Snippet</Link>
+        {/* <Link href={"/resume"}>Resume</Link> */}
       </nav>
 
       <ul className="[&>*]:mx-3 [&>*]:text-md md:[&>*]:mx-3 flex items-center">
