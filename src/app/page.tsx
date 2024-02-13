@@ -16,18 +16,7 @@ export default async () => {
           children={
             <PostsFetcher
               children={({ posts }: { posts: PostInfo[] }) => <PostGrid posts={posts} />}
-              fetcher={() =>
-                postService.getPosts({
-                  filter: [
-                    {
-                      property: "snippet",
-                      checkbox: {
-                        equals: false,
-                      },
-                    },
-                  ],
-                })
-              }
+              fetcher={() => postService.getPostsExceptSnippet()}
             />
           }
         />

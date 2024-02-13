@@ -21,7 +21,7 @@ export default async ({ params: { tag } }: { params: { tag: string } }) => {
           children={
             <PostsFetcher
               children={({ posts }: { posts: PostInfo[] }) => <PostList posts={posts} />}
-              fetcher={() => postService.getPostsFromTag({ tag: tagname })}
+              fetcher={() => postService.getPostsFromTag(tagname)}
             />
           }
         />

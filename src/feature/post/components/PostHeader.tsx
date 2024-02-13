@@ -3,7 +3,7 @@ import { postService } from "@/service/post";
 import Link from "next/link";
 
 export const PostHeader = async ({ id }: { id: string }) => {
-  const post = await postService.getPostInfo({ id });
+  const post = await postService.getPostInfoById(id);
 
   return (
     <div className="relative h-screen w-screen animate-fadeIn">

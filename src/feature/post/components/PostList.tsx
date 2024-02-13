@@ -11,11 +11,11 @@ export const PostList = ({ posts }: { posts: PostInfo[] }) => {
         {posts?.map((post) => (
           <PostCard post={post} key={post.id}>
             <PostCard key={post.id} post={post}>
-              <Link href={`posts/${post.id}`}>
+              <Link href={`/posts/${post.id}`}>
                 <PostCard.Image />
               </Link>
               <PostCard.Tags />
-              <Link href={`posts/${post.id}`}>
+              <Link href={`/posts/${post.id}`}>
                 <PostCard.Title />
                 <PostCard.Description />
                 <PostCard.TimeLine />

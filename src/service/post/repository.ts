@@ -11,5 +11,4 @@ export abstract class PostRepository {
     cursor,
   }: PostType["getPartialPost"]): Promise<PostType["getPartialPostResponse"]>;
   abstract getTagAll(): Promise<Tag[]>;
-  abstract getPostsFromTag({ tag }: PostType["getByTag"]): Promise<PostType["info"][]>;
 }
