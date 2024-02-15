@@ -5,7 +5,7 @@ export const Tags = () => {
   const post = usePostContext();
 
   return (
-    <>
+    <div>
       {post.tags.map((tag) => (
         <Link
           href={`/tags/${tag.name}`}
@@ -15,6 +15,6 @@ export const Tags = () => {
           #{tag.name}
         </Link>
       ))}
-    </>
+    </div>
   );
 };

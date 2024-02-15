@@ -6,7 +6,7 @@ import { PostType } from "./type";
 interface PostServiceInterFace {
   getPosts(): Promise<PostInfo[]>;
   getPostsExceptSnippet(): Promise<PostInfo[]>;
-  getSnippetPosts(): Promise<PostInfo[]>;
+  getSnippetPosts(option: { tag?: string }): Promise<PostInfo[]>;
   getPostsFromTag(tag: string): Promise<PostInfo[]>;
   getPostInfoById(id: string): Promise<PostInfo>;
   getPostBodyById(id: string): Promise<string>;
@@ -46,21 +46,36 @@ export class PostService implements PostServiceInterFace {
     });
   }
 
-  public async getSnippetPosts() {
+  public async getSnippetPosts({ tag }: { tag?: string } = {}) {
+    const filter = [
+      {
+        property: "snippet",
+        checkbox: {
+          equals: true,
+        },
+      },
+      tag && {
+        property: "tags",
+        multi_select: {
+          contains: tag,
+        },
+      },
+    ].filter((i) => i);
+
+    return this.postRepository.getPosts({ filter });
+  }
+
+  public async getPosts() {
     return this.postRepository.getPosts({
       filter: [
         {
-          property: "snippet",
-          checkbox: {
-            equals: true,
+          property: "tags",
+          multi_select: {
+            does_not_contain: "링크",
           },
         },
       ],
     });
-  }
-
-  public async getPosts() {
-    return this.postRepository.getPosts({});
   }
 
   public async getPostInfoById(id: string) {
