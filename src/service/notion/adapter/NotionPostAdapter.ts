@@ -1,6 +1,6 @@
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { MAIN_WEBP } from "@/feature/common/constants";
-import { PostInfo } from "@/feature/post/type";
+import { Icon, PostInfo } from "@/feature/post/type";
 
 export class NotionPostAdapter {
   private id;
@@ -10,6 +10,7 @@ export class NotionPostAdapter {
   private createdAt;
   private updateAt;
   private coverImg;
+  private icon: Icon | undefined;
 
   constructor(notionPageResponse: PageObjectResponse) {
     (this.id = notionPageResponse.id),
@@ -31,6 +32,14 @@ export class NotionPostAdapter {
         notionPageResponse.cover?.type === "external"
           ? notionPageResponse?.cover?.external.url
           : notionPageResponse?.cover?.file.url || undefined);
+    this.icon =
+      notionPageResponse.icon?.type === "emoji"
+        ? { isURL: false, icon: notionPageResponse.icon?.emoji }
+        : notionPageResponse.icon?.type === "external"
+        ? { isURL: true, url: notionPageResponse.icon?.external.url }
+        : notionPageResponse.icon?.type === "file"
+        ? { isURL: true, url: notionPageResponse.icon?.file.url }
+        : undefined;
   }
 
   get info() {
@@ -42,6 +51,7 @@ export class NotionPostAdapter {
       createdAt: this.createdAt,
       updateAt: this.updateAt,
       coverImg: this.coverImg || MAIN_WEBP,
+      icon: this.icon,
     };
 
     return postInfo;
