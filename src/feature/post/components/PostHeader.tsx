@@ -1,5 +1,6 @@
 import { Tag } from "@/feature/Tag/components";
 import { postService } from "@/service/post";
+import { PostIcon } from "./PostIcon";
 
 export const PostHeader = async ({ id }: { id: string }) => {
   const post = await postService.getPostInfoById(id);
@@ -19,6 +20,8 @@ export const PostHeader = async ({ id }: { id: string }) => {
       ></div>
 
       <div className="absolute inset-0 flex flex-col md:items-center justify-end md:justify-center m-5 z-10 [&>*]:text-shadow-lg shadow-black">
+        {post.icon && <PostIcon icon={post.icon} size="lg" className="mb-5 md:m-5" />}
+
         <span className="text-gray-400 text-md block">{post.createdAt}</span>
         <h1 className="text-gray-50 text-3xl">{post.title}</h1>
 
