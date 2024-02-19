@@ -1,6 +1,5 @@
 import { Tag } from "@/feature/Tag/components";
 import { postService } from "@/service/post";
-import Link from "next/link";
 
 export const PostHeader = async ({ id }: { id: string }) => {
   const post = await postService.getPostInfoById(id);
@@ -19,11 +18,9 @@ export const PostHeader = async ({ id }: { id: string }) => {
         }}
       ></div>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center m-10 z-10">
-        <div>
-          <span className="text-gray-400 text-md md:text-center block">{post.createdAt}</span>
-          <h1 className="text-gray-50 text-3xl italic">{post.title}</h1>
-        </div>
+      <div className="absolute inset-0 flex flex-col md:items-center justify-end md:justify-center m-5 z-10 [&>*]:text-shadow-lg shadow-black">
+        <span className="text-gray-400 text-md block">{post.createdAt}</span>
+        <h1 className="text-gray-50 text-3xl">{post.title}</h1>
 
         <span className="text-gray-300 text-lg my-4 block">{post.description}</span>
 
