@@ -6,11 +6,11 @@ type Size = "lg" | "sm";
 const IconSizeMap = {
   lg: {
     length: 60,
-    text: "5xl",
+    text: "3rem",
   },
   sm: {
     length: 20,
-    text: "sm",
+    text: "1rem",
   },
 };
 
@@ -34,7 +34,9 @@ export const PostIcon = ({
     />
   ) : (
     icon && (
-      <span className={generateClassName(`no-underline text-${text}`, className)}>{icon.icon}</span>
+      <span style={{ fontSize: text }} className={generateClassName(`no-underline`, className)}>
+        {icon.icon}
+      </span>
     )
   );
 };
