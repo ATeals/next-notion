@@ -23,6 +23,7 @@ export const CodeBlock = ({
       wrapLongLines={false}
       {...props}
       style={isDarkMode ? oneDark : oneLight}
+      className={"shadow-lg"}
     >
       {String(children).replace(/\n$/, "")}
     </SyntaxHighlighter>
