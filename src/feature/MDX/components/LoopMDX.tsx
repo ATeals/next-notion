@@ -2,6 +2,8 @@ import { LoadingIndicator } from "@/feature/common/components/LoadingIndicator";
 import { Suspense } from "react";
 import MDXComponent from "./MDXComponent";
 import { postService } from "@/service/post";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { PartialPostError } from "@/feature/post/components/PartialPost";
 
 export const LoopMDX = async ({ postId, next }: { postId: string; next?: string }) => {
   const { markdown, cursor } = await postService.getPartialPostData({ id: postId, cursor: next });
@@ -16,7 +18,11 @@ export const LoopMDX = async ({ postId, next }: { postId: string; next?: string 
               <LoadingIndicator />
             </div>
           }
-          children={<LoopMDX postId={postId} next={cursor} />}
+          children={
+            <ErrorBoundary errorComponent={PartialPostError}>
+              <LoopMDX postId={postId} next={cursor} />
+            </ErrorBoundary>
+          }
         />
       )}
     </>

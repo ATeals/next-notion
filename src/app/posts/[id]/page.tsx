@@ -25,7 +25,7 @@ export default async ({ params: { id } }: { params: { id: string } }) => {
         <div className="p-4 background">
           <div className="max-w-[680px] mx-auto relative">
             <Toc />
-            <Suspense fallback={<LoadingIndicator />} children={<PostBody id={id} />} />
+            <PostBody id={id} />
           </div>
           <Giscus />
         </div>
