@@ -12,6 +12,7 @@ export const SnippetPostMarkdownWapper = ({ children }: { children: React.ReactN
         "prose-h1:text-2xl md:prose-h1:text-2xl prose-h1:text-black dark:prose-h1:text-white prose-h1:mb-0",
         "prose-pre:bg-inherit",
         "prose-pre:p-0",
+        "prose-li:text-gray-500 dark:prose-li:text-gray-400",
         "m-auto",
         "animate-fadeIn"
       )}
