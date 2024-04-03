@@ -1,1 +1,1 @@
-export { Heading } from "./atom";
+export { Heading, Text } from "./atom";
