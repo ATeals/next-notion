@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
-    "@repo/utils": "workspace:*"
+    "@repo/utils": "workspace:*",
+    "@repo/configs": "workspace:*"
   },
   "devDependencies": {
-    "@repo/configs": "workspace:*",
     "prettier": "^3.2.5",
     "turbo": "latest"
   },

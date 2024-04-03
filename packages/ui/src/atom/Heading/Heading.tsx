@@ -6,8 +6,8 @@ type HeadingProps = {
   size?: keyof typeof HeadingSizeMap;
 } & AsChildProps;
 
-const HeadingSizeMap = {
-  sm: "text-xl",
+export const HeadingSizeMap = {
+  sm: "text-[1rem]",
   md: "text-2xl",
   lg: "text-3xl",
   xl: "text-4xl",
@@ -24,7 +24,7 @@ export const Heading = <T extends React.ElementType = "h1">({
 }: PolymorphicComponentProps<T, HeadingProps>) => {
   const Element = asChild ? Slot : as || "h1";
 
-  const tailwind = generateClassName("font-bold", HeadingSizeMap[size], className);
+  const tailwind = generateClassName("font-medium", HeadingSizeMap[size], className);
 
   return (
     <Element className={tailwind} {...props}>

@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
+  "files": [
+    "./tailwind/tailwind.config.ts"
+  ],
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.3"
   }
 }
