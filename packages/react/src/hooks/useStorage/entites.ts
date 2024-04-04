@@ -25,19 +25,20 @@ export class Storage<T extends Serializable> {
     return true;
   }
 
-  get(): T | undefined {
+  get() {
     if (!this.storage) return this.initialValue;
 
     try {
       const item = typeof window !== "undefined" ? this.storage.getItem(this.key) : null;
-      return item ? JSON.parse(item) : this.initialValue;
+
+      return item ? (JSON.parse(item) as T) : this.initialValue;
     } catch (error) {
       console.log(error);
       return this.initialValue;
     }
   }
 
-  set(value: T): void {
+  set(value: T) {
     try {
       if (typeof window !== "undefined") {
         this.storage?.setItem(this.key, JSON.stringify(value));
