@@ -21,7 +21,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative dark:bg-dark-bg" style={GeistMono.style}>
+      <body className="relative dark:bg-dark-bg dark:text-gray-200" style={GeistMono.style}>
         {children}
         <Footer />
       </body>

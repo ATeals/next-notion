@@ -25,10 +25,10 @@ export const Navigation = () => {
         </Link>
 
         <div className="hidden md:flex">
-          <Link href={"/"}>Home</Link>
+          <Link href={BLOG_CONFIG.PATH.HOME}>Home</Link>
         </div>
-        <Link href={"/tags"}>Tags</Link>
-        <Link href={"/snippet"}>Snippet</Link>
+        <Link href={BLOG_CONFIG.PATH.TAGS}>Tags</Link>
+        <Link href={BLOG_CONFIG.PATH.SNIPPETS}>Snippets</Link>
       </nav>
 
       <ul className="[&>*]:mx-3 [&>*]:text-md md:[&>*]:mx-3 flex items-center">
