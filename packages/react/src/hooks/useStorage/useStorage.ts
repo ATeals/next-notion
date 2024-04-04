@@ -1,6 +1,5 @@
-import { SetStateAction, useRef, useState } from "react";
 import { Serializable } from "./types";
-import { Storage } from "./entites";
+import { SetStateAction, useSyncExternalStore } from "react";
 
 interface StorageArguments<T extends Serializable> {
   key: string;
@@ -8,30 +7,43 @@ interface StorageArguments<T extends Serializable> {
   type?: "local" | "session";
 }
 
+const subscribe = (listener: () => void) => {
+  window.addEventListener("storage", listener);
+  return () => window?.removeEventListener("storage", listener);
+};
+
+const getSnapShot = (key: string, storage: globalThis.Storage) => {
+  const value = storage.getItem(key);
+  return value ? value : undefined;
+};
+
+const getServerSnapShot = <T>(value: T) => {
+  return JSON.stringify(value);
+};
+
 export const useStorage = <T extends Serializable>({
   key,
   initialValue,
   type,
 }: StorageArguments<T>) => {
-  const { current: storage } = useRef(new Storage<T>(key, initialValue, type));
-  const [storedValue, setStoredValue] = useState(() => storage.get());
+  const storage = type === "local" ? window.localStorage : window.sessionStorage;
 
-  const set = (value: SetStateAction<T | undefined>) =>
-    setStoredValue((prevValue) => {
-      const valueToStore = value instanceof Function ? value(prevValue) : value;
+  const storeValue = useSyncExternalStore(
+    subscribe,
+    () => getSnapShot(key, storage),
+    () => getServerSnapShot(initialValue)
+  );
 
-      if (!valueToStore) {
-        storage.clear();
+  const state: T = storeValue !== undefined ? JSON.parse(storeValue) : initialValue;
 
-        return valueToStore;
-      }
+  const setLocalStorage = (dispatch: SetStateAction<T>) => {
+    const newState =
+      typeof dispatch === "function" ? (dispatch as (value: T) => T)(state) : dispatch;
 
-      storage.set(valueToStore);
+    storage.setItem(key, JSON.stringify(newState));
 
-      return valueToStore;
-    });
+    window.dispatchEvent(new StorageEvent("storage"));
+  };
 
-  const clear = () => storage.clear();
-
-  return [storedValue, set, clear] as const;
+  return [state, setLocalStorage] as const;
 };
