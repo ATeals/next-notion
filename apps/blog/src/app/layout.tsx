@@ -1,5 +1,4 @@
-import { DEFAULT_PAGE_WIDTH } from "src/config";
-import { Footer } from "src/widgets/Layout";
+import { CheckDarkModeScript, Footer } from "src/widgets/Layout";
 
 import { GeistMono } from "geist/font/mono";
 
@@ -13,6 +12,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <CheckDarkModeScript />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
@@ -21,8 +21,8 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative" style={GeistMono.style}>
-        <main className={`max-w-[${DEFAULT_PAGE_WIDTH}] m-auto min-h-dvh`}>{children}</main>
+      <body className="relative dark:bg-dark-bg" style={GeistMono.style}>
+        {children}
         <Footer />
       </body>
     </html>

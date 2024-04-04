@@ -1,5 +1,4 @@
-import { generateClassName } from "@repo/utils";
-import { Heading } from ".";
+import { DividerLine, Heading, Icon, Text } from ".";
 
 const App = () => {
   return (
@@ -28,6 +27,20 @@ const Page = () => {
       <Heading size="lg">Heading</Heading>
       <Heading size="xl">Heading</Heading>
       <Heading size="2xl">Heading</Heading>
+      <DividerLine />
+
+      <Text size="sm">Text</Text>
+      <Text size="md">Text</Text>
+      <Text size="lg">Text</Text>
+      <Text size="xl">Text</Text>
+      <Text size="2xl">Text</Text>
+
+      <DividerLine />
+
+      <Icon icon="house" size="sm" />
+      <Icon icon="house" size="md" />
+      <Icon icon="house" size="lg" />
+      <Icon icon="house" size="xl" />
     </>
   );
 };

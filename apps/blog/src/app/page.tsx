@@ -1,16 +1,23 @@
-import { Heading } from "@repo/ui";
+import { Flex, Heading, Text } from "@repo/ui";
+import Image from "next/image";
 
 const HomePage = () => {
   return (
-    <div className="h-dvh">
-      <Heading size="sm" className=" animate-fadeIn">
-        Heading
-      </Heading>
-      <Heading size="md">Heading</Heading>
-      <Heading size="lg">Heading</Heading>
-      <Heading size="xl">Heading</Heading>
-      <Heading size="2xl">Heading</Heading>
-      안녕
+    <div className="h-dvh w-full p-2 block md:flex">
+      <Flex
+        className="p-10 md:h-full md:w-1/2"
+        style={{ direction: "column", gap: 10, justify: "start" }}
+      >
+        <Image
+          className="shadow-2xl rounded-[50%]"
+          src={"/images/logo.webp"}
+          alt="logo"
+          width={150}
+          height={150}
+        />
+        <Heading className="drop-shadow-lg">Ateals Blog</Heading>
+      </Flex>
+      <div className="bg-red-200 h-full w-full"></div>
     </div>
   );
 };

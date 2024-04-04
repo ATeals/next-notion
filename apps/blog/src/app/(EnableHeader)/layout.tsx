@@ -1,3 +1,6 @@
+import { DEFAULT_PAGE_WIDTH } from "src/config";
+import { Header, Navigation } from "src/widgets/Layout";
+
 const NavigationLayout = ({
   children,
 }: Readonly<{
@@ -5,8 +8,12 @@ const NavigationLayout = ({
 }>) => {
   return (
     <>
-      <header className={`fixed w-full bg-red-300 h-6 inset-0`}></header>
-      {children}
+      <Header>
+        <Navigation />
+      </Header>
+      <main className="min-h-dvh m-auto" style={{ maxWidth: DEFAULT_PAGE_WIDTH }}>
+        {children}
+      </main>
     </>
   );
 };

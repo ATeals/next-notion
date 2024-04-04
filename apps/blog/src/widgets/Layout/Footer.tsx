@@ -6,7 +6,8 @@ export const Footer = () => {
     <footer className="min-h-[200px] w-full">
       <DividerLine />
       <div
-        className={`flex flex-col justify-start items-center p-5 max-w-[${DEFAULT_PAGE_WIDTH}] m-auto h-full`}
+        className={`flex flex-col justify-start items-center p-5 m-auto h-full`}
+        style={{ maxWidth: DEFAULT_PAGE_WIDTH }}
       >
         <div className="dark:text-white">&copy; Ateals</div>
 
