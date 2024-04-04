@@ -1,33 +1,23 @@
-import { Children, cloneElement, isValidElement } from "react";
-import { isSlottable } from "./isSlottable";
+import React from "react";
 
-interface SlotProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
-}
+export type AsChildProps<DefaultElementProps> =
+  | ({ asChild?: false } & DefaultElementProps)
+  | { asChild: true; children: React.ReactNode };
 
-export const Slot = ({ children, ...props }: SlotProps) => {
-  const childrenList = Children.toArray(children);
-  const SlottableElement = childrenList.find(isSlottable);
-
-  if (!SlottableElement) {
-    if (!isValidElement(children))
-      throw new Error("Slot component should have only one React element as a child");
-
-    return cloneElement(children, {
+export const Slot = ({
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLElement> & {
+  children?: React.ReactNode;
+}) => {
+  if (React.isValidElement(children)) {
+    return React.cloneElement(children, {
       ...props,
       ...children.props,
     });
   }
-
-  const newElement = SlottableElement.props.children;
-
-  if (!isValidElement(newElement)) {
-    throw new Error("Slot component should have only one React element as a child");
+  if (React.Children.count(children) > 1) {
+    React.Children.only(null);
   }
-
-  const newChildren = childrenList.map((child) =>
-    child !== SlottableElement ? child : newElement.props.children
-  );
-
-  return cloneElement(newElement, { ...props, ...newElement.props }, newChildren);
+  return null;
 };

@@ -1,6 +1,5 @@
 import { generateClassName } from "@repo/utils";
-import { ElementType } from "react";
-import { PolymorphicComponentProps } from "src/types";
+import { PolymorphicComponentProps } from "@/types";
 
 type BadgeType = {
   size?: keyof typeof BadgeSizeMap;
@@ -19,14 +18,14 @@ const BadgeVariantMap = {
   "primary-outline": "border-[0.1rem] border-blue-400 text-blue-400",
 };
 
-export const Badge = <As extends ElementType = "div">({
+export const Badge = <T extends React.ElementType = "div">({
   as,
   children,
   className,
   size = "md",
   variant = "default",
   ...props
-}: PolymorphicComponentProps<As, BadgeType>) => {
+}: PolymorphicComponentProps<T, BadgeType>) => {
   const Element = as || "div";
 
   const classname = generateClassName(
