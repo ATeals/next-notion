@@ -2,7 +2,7 @@ import { Heading } from "@repo/ui";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="h-dvh">
       <Heading size="sm" className=" animate-fadeIn">
         Heading
       </Heading>
@@ -10,6 +10,7 @@ const HomePage = () => {
       <Heading size="lg">Heading</Heading>
       <Heading size="xl">Heading</Heading>
       <Heading size="2xl">Heading</Heading>
+      안녕
     </div>
   );
 };

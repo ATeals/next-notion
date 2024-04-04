@@ -1,3 +1,8 @@
+import { DEFAULT_PAGE_WIDTH } from "src/config";
+import { Footer } from "src/widgets/Layout";
+
+import { GeistMono } from "geist/font/mono";
+
 import "@/styles/globals.css";
 
 export default function RootLayout({
@@ -15,7 +20,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body>{children}</body>
+
+      <body className="relative" style={GeistMono.style}>
+        <main className={`max-w-[${DEFAULT_PAGE_WIDTH}] m-auto min-h-dvh`}>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
