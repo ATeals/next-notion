@@ -5,7 +5,7 @@ import { Text } from "@/atom";
 export const PostFooter = ({ className }: { className?: string }) => {
   const post = usePostUIContext();
 
-  const css = generateClassName("flex justify-between w-full p-5", className);
+  const css = generateClassName("flex justify-between w-full", className);
 
   return (
     <div className={css}>
@@ -14,7 +14,7 @@ export const PostFooter = ({ className }: { className?: string }) => {
           <Text
             size="sm"
             key={tag.id}
-            className=" flex-shrink-0 p-1 dorp-shadow-lg dark:shadow-zinc-900"
+            className=" flex-shrink-0 pr-1 dorp-shadow-lg dark:shadow-zinc-900"
           >
             #{tag.name}
           </Text>

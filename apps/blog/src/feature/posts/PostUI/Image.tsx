@@ -11,7 +11,7 @@ export const PostUIImage = ({
   const post = usePostUIContext();
 
   const css = generateClassName(
-    "rounded-lg overflow-hidden group-hover:shadow-lg dark:shadow-zinc-900 group-hover:scale-105 transition duration-300 ease-in-out",
+    "overflow-hidden group-hover:shadow-lg dark:shadow-zinc-900 group-hover:scale-105 transition duration-300 ease-in-out",
     className
   );
 
