@@ -20,23 +20,18 @@ export const useDarkMode = (initialValue?: boolean) => {
 
   const toggleDarkMode = () => {
     setIsDarkMode((isDarkMode) => !isDarkMode);
-    setRootClass(!isDarkMode);
   };
 
   const setLightMode = () => {
     setIsDarkMode(false);
-    setRootClass(false);
   };
 
   const setDarkMode = () => {
     setIsDarkMode(true);
-    setRootClass(true);
   };
 
   useEffect(() => {
-    if (isDarkMode === undefined) return;
-
-    setIsDarkMode(isDarkMode);
+    setRootClass(isDarkMode);
   }, [isDarkMode]);
 
   return { isDarkMode, toggleDarkMode, setLightMode, setDarkMode };
