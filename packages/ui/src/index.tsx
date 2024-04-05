@@ -8,4 +8,5 @@ export {
   Grid,
   Icon,
   Badge,
+  LoadingIndicator,
 } from "./atom";

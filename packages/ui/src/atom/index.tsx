@@ -1,3 +1,4 @@
+export { LoadingIndicator } from "./LoadingIndecator";
 export { Badge } from "./Badge";
 export { DividerLine } from "./DividerLine";
 export { Flex } from "./Flex";
