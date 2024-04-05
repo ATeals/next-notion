@@ -1,6 +1,6 @@
 import { Footer } from "src/widgets/Layout";
-
 import { GeistMono } from "geist/font/mono";
+import { metadata } from "./metadata";
 
 import "@/styles/globals.css";
 
@@ -41,3 +41,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export { metadata };
