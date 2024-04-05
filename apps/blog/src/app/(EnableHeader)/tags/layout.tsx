@@ -6,7 +6,7 @@ const TagsPageLayout = async ({ children }: { children: React.ReactNode }) => {
   const tags = await postService.getTagAll();
 
   return (
-    <section className="w-full">
+    <section className="w-full min-h-screen">
       <PageHeader className="p-5">Tags</PageHeader>
       <TagListWapper tags={tags}>{children}</TagListWapper>
     </section>
