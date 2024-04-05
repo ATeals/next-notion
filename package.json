@@ -8,9 +8,10 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "dependencies": {
+    "@repo/configs": "workspace:*",
     "@repo/ui": "workspace:*",
     "@repo/utils": "workspace:*",
-    "@repo/configs": "workspace:*"
+    "@tailwindcss/typography": "^0.5.12"
   },
   "devDependencies": {
     "prettier": "^3.2.5",
