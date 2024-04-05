@@ -9,8 +9,6 @@ export const PostProgressBar = () => {
 
   const windowHeight = document.body.scrollHeight - window.innerHeight;
 
-  console.log(windowHeight, scrollHeight);
-
   return (
     <ProgressBar
       className="fixed shadow-inner z-10 top-12 h-2 rounded-lg"

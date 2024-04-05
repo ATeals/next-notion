@@ -17,7 +17,7 @@ const PostPage = async ({ params: { id } }: { params: { id: string } }) => {
         </Suspense>
 
         <Toc />
-        <article className="bg-white dark:bg-dark-bg p-2">
+        <article className="bg-white dark:bg-dark-bg p-2 animate-fadeInDown">
           <PostBody id={id} />
           <Giscus />
         </article>

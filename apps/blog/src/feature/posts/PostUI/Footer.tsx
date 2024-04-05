@@ -15,7 +15,7 @@ export const PostFooter = ({ className }: { className?: string }) => {
         {post.tags.map((tag) => (
           <Text
             size="sm"
-            className="dorp-shadow-lg dark:shadow-zinc-900 flex-shrink-0 pr-1 hover:text-secondary-lg dark:hover:text-secondary-sm"
+            className="hover:cursor-pointer dorp-shadow-lg dark:shadow-zinc-900 flex-shrink-0 pr-1 hover:text-secondary-lg dark:hover:text-secondary-sm"
             key={tag.id}
             onClick={() => (window.location.href = `${BLOG_CONFIG.PATH.TAGS}/${tag.name}`)}
           >

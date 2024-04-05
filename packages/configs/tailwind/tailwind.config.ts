@@ -74,9 +74,11 @@ const config: Config = {
         darkening: {
           "0%": {
             opacity: "0",
+            backgroundOpacity: "0",
           },
           "100%": {
             opacity: " 0.4",
+            backgroundOpacity: "0.4",
           },
         },
       },
