@@ -1,3 +1,5 @@
+"use client";
+
 import { Serializable } from "./types";
 import { SetStateAction, useSyncExternalStore } from "react";
 
@@ -24,13 +26,13 @@ const getServerSnapShot = <T>(value: T) => {
 export const useStorage = <T extends Serializable>({
   key,
   initialValue,
-  type,
+  type = "local",
 }: StorageArguments<T>) => {
-  const storage = type === "local" ? window.localStorage : window.sessionStorage;
+  const storage = () => (type === "local" ? window.localStorage : window.sessionStorage);
 
   const storeValue = useSyncExternalStore(
     subscribe,
-    () => getSnapShot(key, storage),
+    () => getSnapShot(key, storage()),
     () => getServerSnapShot(initialValue)
   );
 
@@ -40,7 +42,7 @@ export const useStorage = <T extends Serializable>({
     const newState =
       typeof dispatch === "function" ? (dispatch as (value: T) => T)(state) : dispatch;
 
-    storage.setItem(key, JSON.stringify(newState));
+    storage().setItem(key, JSON.stringify(newState));
 
     window.dispatchEvent(new StorageEvent("storage"));
   };
