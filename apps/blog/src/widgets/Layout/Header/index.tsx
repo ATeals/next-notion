@@ -20,11 +20,7 @@ export const Header = ({ children }: { children: React.ReactNode }) => {
     <header
       className={`fixed w-full top-0 z-50`}
       style={{
-        backgroundColor: isScrolled
-          ? isDarkMode
-            ? "rgba(25, 27, 31, 0.3)"
-            : "rgba(255, 255, 255, 0.3)"
-          : "transparent",
+        backgroundColor,
         backdropFilter: isScrolled ? "blur(10px)" : "none",
         transition: "background-color 0.5s ease-in-out, backdrop-filter 0.5s ease-in-out",
         WebkitBackdropFilter: isScrolled ? "blur(10px)" : "none",
