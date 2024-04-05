@@ -12,7 +12,7 @@ const NavigationLayout = ({
         <Navigation />
       </Header>
       <main
-        className="min-h-dvh m-auto relative"
+        className="m-auto relative"
         style={{ maxWidth: DEFAULT_PAGE_WIDTH, marginTop: DEFAULT_HEADER_HEIGHT }}
       >
         {children}

@@ -32,7 +32,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className="relative bg-white dark:bg-dark-bg dark:text-gray-200"
+        className="h-full relative bg-white dark:bg-dark-bg dark:text-gray-200"
         style={GeistMono.style}
       >
         {children}

@@ -4,10 +4,13 @@ import { Suspense } from "react";
 import { Toc, TocProvider } from "@/feature/Toc";
 import { PostBody, PostHeaderFecther } from "@/widgets/Posts";
 import { SkeletonPostHeader } from "@/widgets/Posts/PostHeader";
+import { PostProgressBar } from "@/widgets/Posts/PostProgressBar";
 
 const PostPage = async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <TocProvider>
+      <PostProgressBar />
+
       <section className="scroll-smooth">
         <Suspense fallback={<SkeletonPostHeader />}>
           <PostHeaderFecther id={id} />
