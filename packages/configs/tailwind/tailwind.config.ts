@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: "class",
@@ -9,6 +10,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: {
+        quoteless: {
+          css: {
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:first-of-type::after": { content: "none" },
+          },
+        },
+      },
       textShadow: {
         lg: "0 0 0.4rem var(--tw-shadow-color)",
       },
@@ -73,6 +82,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 export default config;
