@@ -3,7 +3,7 @@ import { postService } from "@/service/post";
 import { DEFAULT_HEADER_HEIGHT } from "src/config";
 
 const PostPage = async () => {
-  const posts = await postService.getPosts();
+  const posts = await postService.getPostsExceptSnippet();
 
   return (
     <div className="h-full pt-15 p-5" style={{ paddingTop: DEFAULT_HEADER_HEIGHT }}>
