@@ -1,4 +1,4 @@
-import { CheckDarkModeScript, Footer } from "src/widgets/Layout";
+import { Footer } from "src/widgets/Layout";
 
 import { GeistMono } from "geist/font/mono";
 
@@ -12,7 +12,17 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <CheckDarkModeScript />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+              if (localStorage.getItem('isDarkMode') === 'true' || (!('isDarkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark');
+              } else {
+                  document.documentElement.classList.remove('dark');
+              }
+            })()`,
+          }}
+        ></script>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
@@ -21,7 +31,10 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative dark:bg-dark-bg dark:text-gray-200" style={GeistMono.style}>
+      <body
+        className="relative bg-white dark:bg-dark-bg dark:text-gray-200"
+        style={GeistMono.style}
+      >
         {children}
         <Footer />
       </body>

@@ -1,4 +1,4 @@
-import { DEFAULT_PAGE_WIDTH } from "src/config";
+import { DEFAULT_HEADER_HEIGHT, DEFAULT_PAGE_WIDTH } from "src/config";
 import { Header, Navigation } from "src/widgets/Layout";
 
 const NavigationLayout = ({
@@ -11,7 +11,10 @@ const NavigationLayout = ({
       <Header>
         <Navigation />
       </Header>
-      <main className="min-h-dvh m-auto" style={{ maxWidth: DEFAULT_PAGE_WIDTH }}>
+      <main
+        className="min-h-dvh m-auto relative"
+        style={{ maxWidth: DEFAULT_PAGE_WIDTH, marginTop: DEFAULT_HEADER_HEIGHT }}
+      >
         {children}
       </main>
     </>

@@ -1,11 +1,9 @@
-import { PostUIList } from "@/feature/posts/PostUILIst";
+import { PostUIList } from "@/feature/posts";
 import { postService } from "@/service/post";
 import { DEFAULT_HEADER_HEIGHT } from "src/config";
 
 const PostPage = async () => {
   const posts = await postService.getPosts();
-
-  console.log(posts);
 
   return (
     <div className="h-full pt-15 p-5" style={{ paddingTop: DEFAULT_HEADER_HEIGHT }}>
