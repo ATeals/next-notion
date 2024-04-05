@@ -7,7 +7,8 @@ import { useScroll } from "@repo/react";
 export const PostProgressBar = () => {
   const scrollHeight = useScroll();
 
-  const windowHeight = document.body.scrollHeight - window.innerHeight;
+  const windowHeight =
+    typeof document !== "undefined" ? document.body.scrollHeight - window.innerHeight : 100;
 
   return (
     <ProgressBar
