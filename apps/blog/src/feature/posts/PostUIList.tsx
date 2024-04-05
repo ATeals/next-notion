@@ -16,7 +16,6 @@ export const PostUIList = ({ posts }: { posts: PostInfo[] }) => {
 
           <div className="relative w-full md:w-2/3 p-4">
             <PostUI.Title />
-
             <PostUI.Description className="max-h-[100px] py-5" />
             <PostUI.Footer className="absolute left-0 bottom-0 p-2 px-4" />
           </div>
