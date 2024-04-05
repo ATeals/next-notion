@@ -1,24 +1,35 @@
 "use client";
 
+import { generateClassName } from "@repo/utils";
 import { useDarkMode } from "./useDarkMode";
 import { useIsMounted } from "@repo/react";
+import { Icon } from "@/atom";
 
-export const DarkmodeButton = () => {
+export const DarkmodeButton = ({
+  className,
+  size,
+}: {
+  className?: string;
+  size?: "xl" | "lg" | "md" | "sm";
+}) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   const mounted = useIsMounted();
 
+  const css = generateClassName(
+    "text-inherit hover:cursor-pointer fill-inherit flex items-center",
+    className
+  );
+
   return (
-    <button
-      suppressHydrationWarning
-      className="text-inherit hover:cursor-pointer fill-inherit flex items-center"
-      onClick={() => toggleDarkMode()}
-    >
+    <button suppressHydrationWarning className={css} onClick={() => toggleDarkMode()}>
       {mounted ? (
         isDarkMode ? (
-          <SVG.light fill={"white"} />
+          // <SVG.light fill={"white"} />
+          <Icon key={"sun"} icon="brightness-high" size={size} className="animate-turn" />
         ) : (
-          <SVG.dark fill="#191B1F" />
+          // <SVG.dark fill="#191B1F" />
+          <Icon key={"moon"} icon="moon" size={size} className="animate-turn" />
         )
       ) : (
         <div className="w-4 h-4"></div>

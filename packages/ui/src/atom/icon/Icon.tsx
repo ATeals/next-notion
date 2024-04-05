@@ -10,7 +10,7 @@ const IconSizeMap = {
   sm: "text-md",
   md: "text-lg",
   lg: "text-2xl",
-  xl: "text-5xl",
+  xl: "text-3xl",
 };
 
 export const Icon = ({ icon, size = "md", color = "inherit", className, ...props }: IconProps) => {

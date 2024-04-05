@@ -1,3 +1,5 @@
+"use client";
+
 import { useStorage } from "@repo/react";
 import { useEffect } from "react";
 
