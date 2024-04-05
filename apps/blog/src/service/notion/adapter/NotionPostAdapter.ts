@@ -1,6 +1,6 @@
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { MAIN_WEBP } from "@/config";
 import { Icon, PostInfo } from "@/feature/posts/types";
+import { BLOG_CONFIG } from "@/config";
 
 export class NotionPostAdapter {
   private id;
@@ -50,7 +50,7 @@ export class NotionPostAdapter {
       tags: this.tags,
       createdAt: this.createdAt,
       updateAt: this.updateAt,
-      coverImg: this.coverImg || MAIN_WEBP,
+      coverImg: this.coverImg || BLOG_CONFIG.MAIN_WEBP,
       icon: this.icon,
     };
 

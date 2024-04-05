@@ -1,8 +1,8 @@
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import customComponents from "./CustomComponents";
 
-export default (props: any) => {
+export const MDXComponent = (props: any) => {
   return (
     <MDXRemote
       {...props}

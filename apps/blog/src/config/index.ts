@@ -2,9 +2,9 @@ export const DEFAULT_PAGE_WIDTH = "700px";
 
 export const DEFAULT_HEADER_HEIGHT = "46px";
 
-export const MAIN_WEBP = "/images/main.webp";
-
 export const BLOG_CONFIG = {
+  MAIN_JPG: "/images/main.jpg",
+  MAIN_WEBP: "/images/main.webp",
   LOGO: "/images/logo.webp",
   PATH: {
     HOME: "/",

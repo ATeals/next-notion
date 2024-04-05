@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import MDXComponent from "./MDXComponent";
+import { MDXComponent } from "./MDXComponent";
 import { postService } from "@/service/post";
 import { LoadingIndicator } from "@/atom";
 import { PartialPostError } from "../posts/PartialPost";
