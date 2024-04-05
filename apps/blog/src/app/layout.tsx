@@ -2,6 +2,9 @@ import { Footer } from "src/widgets/Layout";
 import { GeistMono } from "geist/font/mono";
 import { metadata } from "./metadata";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "@/styles/globals.css";
 
 export default function RootLayout({
@@ -29,6 +32,15 @@ export default function RootLayout({
           integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
           crossOrigin="anonymous"
         />
+
+        <meta
+          name="google-site-verification"
+          content="SWzdnKcr1a_u4qCWr_61fw6PxQf4NZkXWHl1aDrwaeg"
+        />
+
+        <link rel="alternate" type="application/rss+xml" href="/feed/rss" title="RSS" />
+        <link rel="alternate" type="application/atom+xml" href="/feed/atom" title="RSS Atom" />
+        <link rel="alternate" type="application/json" href="/feed/json" title="JSON Feed" />
       </head>
 
       <body
@@ -37,6 +49,9 @@ export default function RootLayout({
       >
         {children}
         <Footer />
+
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
