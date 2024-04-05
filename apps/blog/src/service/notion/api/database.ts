@@ -2,7 +2,7 @@ import {
   GetDatabaseResponse,
   QueryDatabaseResponse,
 } from "@notionhq/client/build/src/api-endpoints";
-import { notionFetcher } from "./notionFetcer";
+import { notionFetcher } from ".";
 
 export const QueryDatabase = async (
   dbId: string,

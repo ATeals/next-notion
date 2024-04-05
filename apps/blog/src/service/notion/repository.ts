@@ -4,7 +4,7 @@ import { PostAdapterClass, PostType } from "../post/type";
 import { PostRepository } from "../post/repository";
 import { QueryDatabase, RetrieveBlockChildren, RetrieveDatabase, RetrievePage } from "./api";
 import { isFullPageResponse } from "./utils/isFullPageResponse";
-import { Tag } from "@/feature/Tag/type";
+import { Tag } from "@/feature/posts";
 
 export class NotionPostRepository implements PostRepository {
   constructor(

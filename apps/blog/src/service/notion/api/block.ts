@@ -1,5 +1,5 @@
 import { ListBlockChildrenResponse } from "@notionhq/client/build/src/api-endpoints";
-import { notionFetcher } from "./notionFetcer";
+import { notionFetcher } from ".";
 
 export const RetrieveBlockChildren = async (
   id: string,

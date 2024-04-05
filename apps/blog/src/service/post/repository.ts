@@ -1,4 +1,4 @@
-import { Tag } from "@/feature/Tag/type";
+import { Tag } from "@/feature/posts";
 import { PostType } from "./type";
 
 export abstract class PostRepository {
