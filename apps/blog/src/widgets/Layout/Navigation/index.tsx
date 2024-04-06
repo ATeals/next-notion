@@ -3,6 +3,7 @@
 import { Flex, Icon } from "@/atom";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BLOG_CONFIG } from "src/config";
 import { DarkmodeButton } from "src/feature/DarkMode/DarkmodeButton";
 
@@ -17,6 +18,8 @@ const SOCIAL_LINK_ITEMS = [
 ];
 
 export const Navigation = () => {
+  const path = usePathname().split("/")[1];
+
   return (
     <Flex className="w-full py-2 text-sm md:text-md" style={{ justify: "space-between" }}>
       <nav className="[&>*]:mx-1 md:[&>*]:mx-3 flex items-center">
@@ -29,10 +32,16 @@ export const Navigation = () => {
             <span className="text-sm md:text-md">Home</span>
           </Link>
         </div>
-        <Link href={BLOG_CONFIG.PATH.TAGS}>
+        <Link
+          href={BLOG_CONFIG.PATH.TAGS}
+          className={`/${path}` === BLOG_CONFIG.PATH.TAGS ? "text-secondary-lg" : ""}
+        >
           <span className="text-sm md:text-md">TAGS</span>
         </Link>
-        <Link href={BLOG_CONFIG.PATH.SNIPPETS}>
+        <Link
+          href={BLOG_CONFIG.PATH.SNIPPETS}
+          className={`/${path}` === BLOG_CONFIG.PATH.SNIPPETS ? "text-secondary-lg" : ""}
+        >
           <span className="text-sm md:text-md">SNIPPETS</span>
         </Link>
       </nav>

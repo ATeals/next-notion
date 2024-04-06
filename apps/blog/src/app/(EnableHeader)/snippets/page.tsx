@@ -1,8 +1,10 @@
+import { LoadingIndicator } from "@/atom";
 import { RandomQuotes } from "@/feature/RandomQuotes";
-import { SnippetsPostList } from "@/widgets/Snippets";
+import { SnippetsPostList, SnippetsNavigation } from "@/widgets/Snippets";
 import { PageHeader } from "@/widgets/common";
+import { Suspense } from "react";
 
-const SnippetsPage = async () => {
+const SnippetsPage = async ({ searchParams: { tag } }: { searchParams: { tag?: string } }) => {
   return (
     <section>
       <section className="p-5 w-full">
@@ -11,7 +13,17 @@ const SnippetsPage = async () => {
         <RandomQuotes />
       </section>
 
-      <SnippetsPostList />
+      <SnippetsNavigation currentTag={tag} />
+
+      <Suspense
+        fallback={
+          <div className="min-h-screen">
+            <LoadingIndicator />
+          </div>
+        }
+      >
+        <SnippetsPostList tag={tag} />
+      </Suspense>
     </section>
   );
 };
