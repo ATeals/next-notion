@@ -5,6 +5,7 @@ import { SnippetsMarkdownWapper } from "./SnippetsMarkdownWapper";
 import { DividerLine, Icon } from "@/atom";
 import { BLOG_CONFIG } from "@/config";
 import { useState } from "react";
+import Link from "next/link";
 
 export const SnippertsPost = ({
   post,
@@ -27,7 +28,10 @@ export const SnippertsPost = ({
           <div className="flex justify-between items-end">
             <div className="flex items-end gap-2">
               <PostUI.Icon />
-              <PostUI.Title />
+
+              <Link href={`${BLOG_CONFIG.PATH.POSTS}/${post.id}`} className="no-underline">
+                <PostUI.Title />
+              </Link>
             </div>
 
             <div className="hidden group-hover:flex items-end gap-2">
