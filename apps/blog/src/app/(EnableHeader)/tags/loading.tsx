@@ -1,7 +1,1 @@
-import { LoadingIndicator } from "@/atom";
-
-const TagLoading = () => {
-  return <LoadingIndicator />;
-};
-
-export default TagLoading;
+export { FullPageLoading as default } from "@/widgets/common/FullPageLoading";
