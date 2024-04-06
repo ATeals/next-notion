@@ -1,36 +1,81 @@
-# 기술 블로그
+# Turborepo starter
 
-Next.js 풀스택 기술 블로그
+This is an official starter Turborepo.
 
-[🔗 블로그 링크](https://ateals.vercel.app/)
+## Using this example
 
-<p>
-<img src="https://img.shields.io/badge/Notion-000000?&style=for-the-badge&logo=Notion&logoColor=white">
-<img src="https://img.shields.io/badge/Next.js-000?&style=for-the-badge&logo=next.js&logoColor=white">
-<img src="https://img.shields.io/badge/Typescript-3178C6?&style=for-the-badge&logo=Typescript&logoColor=white">
-<img src="https://img.shields.io/badge/Tailwindcss-06B6D4?&style=for-the-badge&logo=Tailwindcss&logoColor=white">
-</p>
+Run the following command:
 
-### 기능
-
-- 노션 워크스페이스에 연결된 글들을 Notion API를 이용해 블로그에 발행합니다.
-- 태그 별로 포스트를 분리합니다.
-
-### 폴더 구조
-
-```
-src
-├── app
-├── config
-├── feature
-├── service
-├── styles
-└── types
+```sh
+npx create-turbo@latest
 ```
 
-- app : Next.js의 page 라우팅을 담고 있습니다.
-- config : 블로그의 config를 담고 있습니다.
-- feature : 리액트와 관련된 기능들을 도메인 별로 담고 있습니다.
-- service : 서버 컴포넌트나 Route Handler에서 사용하는 서비스 로직을 도메인 별로 가지고 있습니다.
-- styles : 전역 스타일을 가지고 있습니다.
-- types : 전역 타입을 가지고 있습니다. 추가로 feature와 service에서 함께 다루는 타입을 담을 예정입니다.
+## What's inside?
+
+This Turborepo includes the following packages/apps:
+
+### Apps and Packages
+
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+
+### Utilities
+
+This Turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
+
+### Build
+
+To build all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm build
+```
+
+### Develop
+
+To develop all apps and packages, run the following command:
+
+```
+cd my-turborepo
+pnpm dev
+```
+
+### Remote Caching
+
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+
+```
+cd my-turborepo
+npx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
