@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <div className="min-h-dvh w-full p-2 block md:flex items-start md:p-20">
+    <div className="min-h-dvh w-full p-2 block lg:flex items-start md:p-20">
       <Flex
-        className="p-10 md:h-full md:w-1/2"
+        className="p-10 lg:h-full lg:w-1/2 w-full"
         style={{ direction: "column", gap: 10, justify: "start" }}
       >
         <Image
@@ -22,7 +22,7 @@ const HomePage = () => {
 
         <Heading className="drop-shadow-lg">Ateals Blog</Heading>
       </Flex>
-      <div className="grid grid-cols-2 md:grid-cols-4 w-full h-auto gap-10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 w-full h-auto gap-5 lg:gap-10 justify-items-center align-items-center">
         <Link href={BLOG_CONFIG.PATH.POSTS}>
           <Box className="h-40 w-40">POSTS</Box>
         </Link>

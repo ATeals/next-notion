@@ -5,7 +5,7 @@ import { PostInfo, PostUI } from "@/feature/posts";
 export const PostHeader = ({ post }: { post: PostInfo }) => {
   return (
     <PostUI post={post}>
-      <div className="animate-fadeIn relative top-0 h-screen w-full md:h-auto max-h-screen mt-[-46px] sm:rounded-lg overflow-hidden">
+      <div className="animate-fadeIn relative top-0 h-dvh w-full md:h-auto max-h-screen mt-[-46px] sm:rounded-lg overflow-hidden">
         <PostUI.Image className="h-full w-full  md:h-auto relative ">
           <section className="absolute w-full z-20 bottom-0 p-5 drop-shadow-lg dark:shadow-zinc-950">
             <PostUI.Icon size="xl" />
