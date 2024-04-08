@@ -2,6 +2,7 @@
 
 import { BLOG_CONFIG, SITE_CONFIG } from "@/config";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { Suspense } from "react";
 
 export interface OpenGraph {
   title: string;
@@ -12,8 +13,10 @@ export interface OpenGraph {
 
 export const a = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   return children === "bookmark" ? (
-    <ErrorBoundary errorComponent={() => <div></div>}>
-      <BookMark href={href} />
+    <ErrorBoundary errorComponent={() => <span></span>}>
+      <Suspense fallback={<span></span>}>
+        <BookMark href={href} />
+      </Suspense>
     </ErrorBoundary>
   ) : (
     <a href={href}> {children ? children : href}</a>
@@ -31,7 +34,7 @@ const BookMark = async ({ href }: { href: string | undefined }) => {
     <a
       href={href}
       target="_blank"
-      className="my-10 block md:flex shadow-md hover:scale-105 group no-underline md:max-h-[200px] transition-all duration-200 ease-in-out"
+      className="group/bookmark my-10 block md:flex  shadow-md hover:scale-105  no-underline md:max-h-[200px] transition-all duration-200 ease-in-out"
     >
       <span className="block w-full md:w-[40%] h-[200px] md:h-auto">
         <img src={img} alt="ogImage" className="object-contain md:object-cover w-full h-full m-0" />
@@ -41,7 +44,7 @@ const BookMark = async ({ href }: { href: string | undefined }) => {
         <span className="block text-sm text-gray-400 mb-5 overflow-clip">
           {description.length > 125 ? description.slice(1, 125) + "..." : description}
         </span>
-        <span className="group-hover:text-secondary-lg md:text-end text-sm text-gray-400 overflow-hidden overflow-ellipsis max-h-[1.4rem]">
+        <span className="group-hover/bookmark:text-secondary-lg text-sm text-gray-400 overflow-hidden overflow-ellipsis max-h-[1.4rem]">
           {url}
         </span>
       </span>
