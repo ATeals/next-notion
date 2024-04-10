@@ -1,5 +1,6 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 import { generateClassName } from "@/generateClassName";
 
@@ -14,7 +15,9 @@ export const MarkdownViewer = ({ children, className, ...props }: MarkdownViewer
 
   return (
     <div className={css} {...props}>
-      <Markdown remarkPlugins={[remarkGfm]}>{children}</Markdown>
+      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+        {children}
+      </Markdown>
     </div>
   );
 };
