@@ -1,5 +1,7 @@
-import { createBrowserRouter, RouterProvider as Provider, Link } from "react-router-dom";
+import { createBrowserRouter, RouterProvider as Provider } from "react-router-dom";
+
 import { Layout } from "./pages/Layout";
+import { Home } from "./pages/Home";
 
 const PATH = {
   ROOT: "",
@@ -14,7 +16,7 @@ const route = createBrowserRouter([
     children: [
       {
         path: PATH.HOME,
-        element: <div>home</div>,
+        element: <Home />,
       },
       {
         path: PATH.EDITOR,
