@@ -1,0 +1,1 @@
+export { useParmasData } from "./useParamsData";
