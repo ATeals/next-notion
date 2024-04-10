@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 
 import { useParmasData } from "@/feature/common/hooks/useParamsData";
 
-import "@/styles/github-md-style.css";
 import { MarkdownViewer, MarkdownEditor } from "@/feature/Markdown";
 
 const useMarkdownInput = () => {

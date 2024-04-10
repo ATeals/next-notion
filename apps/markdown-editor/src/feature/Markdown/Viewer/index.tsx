@@ -3,6 +3,8 @@ import remarkGfm from "remark-gfm";
 
 import { generateClassName } from "@/generateClassName";
 
+import "@/styles/github-md-style.css";
+
 type MarkdownViewerProps = Omit<React.HTMLProps<HTMLDivElement>, "children"> & {
   children: string;
 };
