@@ -11,12 +11,18 @@ import { Switch } from "@repo/react";
 import { useState } from "react";
 
 export const Editor = () => {
-  const { register, markdown, addShortcut } = useMarkdownInput();
+  const { register, markdown, addShortcut, setMarkdown } = useMarkdownInput();
 
   const { isMaxWidth } = useWindowWidth();
 
   const EDITOR_CASES = {
-    EDIT: <MarkdownEditorWidget register={register} addShortcut={addShortcut} />,
+    EDIT: (
+      <MarkdownEditorWidget
+        register={register}
+        addShortcut={addShortcut}
+        setMarkdown={setMarkdown}
+      />
+    ),
     PREVIEW: <MarkdownViewerWidget className="h-full" markdown={markdown} />,
     CODE: <MarkdownRichTextWidget className="h-full" markdown={markdown} />,
   };
@@ -26,7 +32,11 @@ export const Editor = () => {
   return isMaxWidth(1200) ? (
     <div className="flex h-dvh p-5">
       <div className="w-1/2 h-full rounded-lg bg-white p-5">
-        <MarkdownEditorWidget register={register} addShortcut={addShortcut} />
+        <MarkdownEditorWidget
+          register={register}
+          addShortcut={addShortcut}
+          setMarkdown={setMarkdown}
+        />
       </div>
       <div className="w-1/2 h-full rounded-lg  border-2 border-gray-300 overflow-hidden">
         <div className="flex justify-end w-full gap-2 [&>*]:rounded-t-lg">

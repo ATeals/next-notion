@@ -1,5 +1,5 @@
 import { useParmasData } from "@/feature/common/hooks";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MARKDOWN_SHORTCUTS } from "../const";
 
 export const useMarkdownInput = () => {
@@ -13,7 +13,6 @@ export const useMarkdownInput = () => {
         value: markdown,
         onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => {
           setMarkdown(e.currentTarget.value);
-          setData(e.currentTarget.value);
         },
       }),
       [markdown]
@@ -23,6 +22,10 @@ export const useMarkdownInput = () => {
   const addShortcut = (shortcut: keyof typeof MARKDOWN_SHORTCUTS) => {
     setMarkdown((prev) => prev + "\n" + MARKDOWN_SHORTCUTS[shortcut]);
   };
+
+  useEffect(() => {
+    setData(markdown);
+  }, [markdown]);
 
   return { markdown, setMarkdown, register, addShortcut };
 };
