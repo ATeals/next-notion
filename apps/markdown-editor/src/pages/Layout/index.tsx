@@ -1,5 +1,9 @@
 import { Outlet } from "react-router-dom";
 
 export const Layout = () => {
-  return <Outlet />;
+  return (
+    <main className="bg-gray-300">
+      <Outlet />
+    </main>
+  );
 };
