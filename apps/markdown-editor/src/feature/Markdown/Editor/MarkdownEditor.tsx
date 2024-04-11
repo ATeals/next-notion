@@ -14,7 +14,7 @@ export const MarkdownEditorProvider = ({
   return (
     <div className={css}>
       <textarea
-        className={"resize-none w-full h-full p-2 pt-[50px] "}
+        className={"resize-none absolute inset-0 w-full h-full p-2 pt-[50px] outline-none"}
         value={value}
         onChange={onChange}
         {...props}
