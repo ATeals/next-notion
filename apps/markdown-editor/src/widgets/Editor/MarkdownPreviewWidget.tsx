@@ -14,7 +14,7 @@ export const MarkdownViewerWidget = ({ markdown, className }: MarkdownPreviewWid
 };
 
 export const MarkdownRichTextWidget = ({ markdown, className }: MarkdownPreviewWidgetProps) => {
-  const css = generateClassName("bg-white p-2", className);
+  const css = generateClassName("bg-white p-2 overflow-scroll", className);
 
   return <pre className={css}>{markdown}</pre>;
 };
