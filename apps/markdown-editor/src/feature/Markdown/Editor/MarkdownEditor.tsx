@@ -26,7 +26,7 @@ export const MarkdownEditorProvider = ({
 
 export const MarkdownEditorToolbar = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex absolute top-0 left-0 w-full border-[0.1rem] border-gray-300 rounded-lg overflow-scroll">
+    <div className="flex absolute top-0 left-0 w-full border-[0.1rem] border-gray-300 bg-white rounded-lg overflow-scroll">
       {children}
     </div>
   );
