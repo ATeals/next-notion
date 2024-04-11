@@ -115,6 +115,9 @@ importers:
 
   apps/markdown-editor:
     dependencies:
+      '@repo/react':
+        specifier: workspace:*
+        version: link:../../packages/react
       react:
         specifier: ^18.2.0
         version: 18.2.0
