@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider as Provider } from "react-router-do
 import { Layout } from "./pages/Layout";
 
 import { EditorPage, HomePage } from "./pages";
+import { Suspense } from "react";
 
-const PATH = {
+export const PATH = {
   ROOT: "",
   HOME: "/",
   EDITOR: "/editor",
@@ -17,11 +18,20 @@ const route = createBrowserRouter([
     children: [
       {
         path: PATH.HOME,
-        element: <HomePage />,
+        element: (
+          <Suspense>
+            <HomePage />
+          </Suspense>
+        ),
       },
       {
         path: PATH.EDITOR,
-        element: <EditorPage />,
+        element: (
+          <Suspense>
+            {" "}
+            <EditorPage />
+          </Suspense>
+        ),
       },
     ],
   },
