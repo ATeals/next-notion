@@ -1,6 +1,6 @@
 import { LanguageBadgeModal, ModalWapper } from "@/feature/LanguageBadge";
 import { MARKDOWN_SHORTCUTS, MarkdownEditor } from "@/feature/Markdown";
-import { useOverlay } from "@repo/react";
+import { useOverlay } from "@/feature/common/hooks";
 import { SetStateAction } from "react";
 
 const SIMPLE_BADGE_URL = ({ language, color }: { language: string; color: string }) =>

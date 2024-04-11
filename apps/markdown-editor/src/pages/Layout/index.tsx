@@ -1,6 +1,5 @@
+import { OverlayProvider } from "@/feature/common/hooks";
 import { Outlet } from "react-router-dom";
-
-import { OverlayProvider } from "@repo/react";
 
 export const Layout = () => {
   return (
