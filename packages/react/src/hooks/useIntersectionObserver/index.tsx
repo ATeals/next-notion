@@ -13,6 +13,8 @@ export const useIntersectionObserver = ({
 
   const ref = useCallback(
     (node: HTMLDivElement) => {
+      if (!node) return;
+
       if (observerRef.current) {
         observerRef.current.disconnect();
       }
@@ -26,9 +28,7 @@ export const useIntersectionObserver = ({
         { rootMargin: "-50px 0px -700px 0px", ...option }
       );
 
-      if (node) {
-        observerRef.current.observe(node);
-      }
+      observerRef.current.observe(node);
     },
     [onIntersecting]
   );
