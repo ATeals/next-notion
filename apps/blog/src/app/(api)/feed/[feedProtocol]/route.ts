@@ -1,4 +1,4 @@
-import { SITE_CONFIG } from "@/config";
+import { BLOG_CONFIG, SITE_CONFIG } from "@/config";
 import { postService } from "@/service/post";
 import { Feed } from "feed";
 import { NextRequest, NextResponse } from "next/server";
@@ -30,7 +30,7 @@ export const GET = async (
       description: post.description,
       author: [SITE_CONFIG.owner],
       contributor: [SITE_CONFIG.owner],
-      image: post.coverImg || `${SITE_CONFIG.url}images/main.jpg`,
+      image: `${BLOG_CONFIG.DOMAIN}/${BLOG_CONFIG.MAIN_JPG}`,
       date: new Date(post.createdAt),
       category: post.tags.map((tag) => ({ name: tag.name })),
     });

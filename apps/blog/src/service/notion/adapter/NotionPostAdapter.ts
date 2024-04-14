@@ -50,7 +50,7 @@ export class NotionPostAdapter {
       tags: this.tags,
       createdAt: this.createdAt,
       updateAt: this.updateAt,
-      coverImg: this.coverImg || BLOG_CONFIG.MAIN_WEBP,
+      coverImg: this.coverImg || `${BLOG_CONFIG.DOMAIN}/${BLOG_CONFIG.MAIN_WEBP}`,
       icon: this.icon,
     };
 
