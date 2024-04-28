@@ -8,7 +8,8 @@ export const PostWapper = ({
   className?: string;
 }) => {
   const css = generateClassName(
-    "group  lg:hover:shadow-lg hover:cursor-pointer rounded-lg dark:shadow-zinc-900",
+    "group hover:scale-105 lg:hover:shadow-lg hover:cursor-pointer rounded-lg dark:shadow-zinc-900",
+    "transition-all ease-in-out duration-300",
     className
   );
 
