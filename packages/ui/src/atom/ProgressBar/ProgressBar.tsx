@@ -15,7 +15,7 @@ export const ProgressBar = ({ current, max, barStyle, ...props }: ProgressBarPro
   );
 
   const barCss = generateClassName(
-    "max-w-full left-0 rounded-lg h-full transition-all duration-100",
+    "max-w-full left-0 rounded-lg h-full",
     barStyle || "bg-primary-lg"
   );
 
