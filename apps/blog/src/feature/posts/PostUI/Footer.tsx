@@ -10,8 +10,8 @@ export const PostFooter = ({ className }: { className?: string }) => {
   const css = generateClassName("flex justify-between w-full", className);
 
   return (
-    <div className={css}>
-      <div className="flex overflow-scroll w-2/3 gap-1 text-gray-600 dark:text-gray-300">
+    <div className={css + "bg-transparent"}>
+      <div className="flex overflow-auto w-2/3 gap-1 text-gray-600 dark:text-gray-300 bg-transparent">
         {post.tags.map((tag) => (
           <Text
             size="sm"
