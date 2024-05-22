@@ -15,6 +15,9 @@ export const BLOG_CONFIG = {
     POSTS: "/posts",
   },
   REVALIDATE_TAGNAME: "REVALIDATE_TAG",
+  URL: {
+    DOCS: "https://ateals-docs.vercel.app/",
+  },
 };
 
 export const SITE_CONFIG = {

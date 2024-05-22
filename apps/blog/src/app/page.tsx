@@ -35,9 +35,9 @@ const HomePage = () => {
           <Box className="h-40 w-40">SNIPPETS</Box>
         </Link>
 
-        <Box className="h-40 w-40">
-          <DarkmodeButton size="xl" />
-        </Box>
+        <Link href={BLOG_CONFIG.URL.DOCS}>
+          <Box className="h-40 w-40">DOCS</Box>
+        </Link>
 
         <Box className="col-span-2  md:col-span-4">
           <img src="https://ghchart.rshah.org/219138/ATeals" className="object-contain" />
